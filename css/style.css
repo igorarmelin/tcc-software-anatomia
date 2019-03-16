@@ -9,10 +9,6 @@
     border:0;
     }
 
-html{
-    overflow: hidden;
-}
-
 /************ Estilos: Login ***************/
 .title{
     color: #007BFF;
@@ -41,3 +37,39 @@ html{
 .w3-cell-row:before,.w3-cell-row:after,.w3-clear:after,.w3-clear:before,.w3-bar:before,.w3-bar:after{content:"";display:table;clear:both}
 .w3-container,.w3-panel{padding:0.01em 16px}.w3-panel{margin-top:16px;margin-bottom:16px}
 .w3-teal,.w3-hover-teal:hover{color:#fff!important;background-color:#009688!important}
+
+/***********Estilos: Alunos cadastrados************/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 75%;
+    margin: 50px auto;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+/***********Estilos: Cadastro categorias************/
+#cadastro_cat{
+    margin: 50px auto;
+    width: 75%;
+}
+
+#cadastro_cat label{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+

@@ -12,27 +12,13 @@
   </head>
   <body>
     
-  <!--Navbar-->
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="paineladm.html">
-        FHO | Fundação Hermínio Ometto
-    </a>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="login.html">Sair</a>
-      </li>
-    </ul>
-  </nav>
-  <!--Fim Navbar-->
+  <!--Header-->
+    <?php include "segmentos/header.php"; ?>
+  <!--fim header-->
 
   <!-- Sidebar -->
-  <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-    <h3 class="w3-bar-item">Menu</h3>
-    <a href="#" class="w3-bar-item w3-button">Alunos cadastrados</a>
-    <a href="#" class="w3-bar-item w3-button">Cadastrar categorias</a>
-    <a href="#" class="w3-bar-item w3-button">Upload de imagens</a>
-    <a href="#" class="w3-bar-item w3-button">Realizar marcações</a>
-  </div>
+    <?php include "segmentos/sidebar.php"; ?>
+  <!-- fim sidebar-->
 
   <!-- Page Content -->
   <div style="margin-left:25%">
