@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Anatomia Humana - Painel Adm</title>
+    <title>Anatomia Humana - Upload de Imagens</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,10 +24,26 @@
   <div style="margin-left:25%">
 
     <div class="w3-container w3-teal">
-      <h1 style="margin: auto; text-align:center;">Painel Administrador - Anatomia Humana</h1>
+      <h1 style="margin:auto; text-align:center;">Upload de Imagens</h1>
     </div>
 
-    <img src="../imagens/bg-painel-aluno.jpg" alt="Anatomia" style="width:100%">
+    <!--Cadastro imagens-->
+    <div class="cadastro">
+        <div class="form-group">
+            <input type="file" class="form-control-file mb-3" id="exampleInputFile" />
+            Selecionar categoria da imagem:
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Categoria #1</option>
+                <option>Categoria #2</option>
+                <option>Categoria #3</option>
+                <option>Categoria #4</option>
+                <option>Categoria #5</option>
+                <option>Categoria ...</option>
+            </select>
+            <input class="btn btn-primary mt-3" type="submit" value="Cadastrar">
+        </div>
+    </div>
+    <!--fim imagens-->
 
   </div>
 

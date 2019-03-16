@@ -28,7 +28,7 @@
     </div>
 
     <!--Cadastro categorias-->
-    <div id="cadastro_cat">
+    <div class="cadastro">
         <form action="#" method="GET">
             <div class="form-group">
                 <label for="cadastrarCategoria">Nova categoria: </label>

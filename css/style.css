@@ -56,19 +56,21 @@ table {
     background-color: #dddddd;
   }
 
-/***********Estilos: Cadastro categorias************/
-#cadastro_cat{
+/***********Estilos: Cadastro categorias / imagens************/
+.cadastro{
     margin: 50px auto;
     width: 75%;
 }
 
-#cadastro_cat label{
+.cadastro label{
     font-size: 28px;
     font-weight: bold;
 }
 
-
-
+/***********Estilos: Cadastro marcações************/
+.pagination{
+  justify-content: center;
+}
 
 
 
