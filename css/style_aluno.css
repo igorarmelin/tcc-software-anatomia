@@ -1,0 +1,50 @@
+/*******************************************/
+/************ ESTILOS GERAIS ***************/
+/*******************************************/
+* {
+    padding:0;
+    margin:0;
+    vertical-align:baseline;
+    list-style:none;
+    border:0;
+}
+
+/******* Estilo aluno-index *******/
+#nav-style {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #343A40;
+}
+  
+.nav-li-style {
+    float: left;
+}
+  
+.nav-li-style .nav-link-style {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-li-style .nav-link-style:hover {
+    display: block;
+    color: black;
+    background-color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/***********Estilos: Ver fotos************/
+.pagination{
+    justify-content: center;
+}
+
+/**********Estilos: Questionario ***********/
+.center{
+    text-align: center;
+}

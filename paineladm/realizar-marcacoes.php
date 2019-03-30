@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Anatomia Humana - Cadastrar Marcações</title>
+    <title>Anatomia Humana - Realizar Marcações</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
   <div style="margin-left:25%">
 
     <div class="w3-container w3-teal">
-      <h1 style="margin:auto; text-align:center;">Cadastrar Marcações</h1>
+      <h1 style="margin:auto; text-align:center;">Realizar Marcações</h1>
     </div>
 
     <!--Cadastro marcações-->
