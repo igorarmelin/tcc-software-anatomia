@@ -57,11 +57,6 @@
                         <h6>1 de 5</h6>
                     </div>
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
-                    </ul>
-                </nav>
         </div>
     </div>
     <!--fim area questionario-->
