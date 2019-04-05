@@ -8,7 +8,7 @@
         <a class="nav-link-style" href="ver-fotos.php">Ver fotos</a>
       </li>
       <li class="nav-li-style">
-        <a class="nav-link-style" href="questionario.php">Questionário</a>
+        <a class="nav-link-style" href="gerar-questionario.php">Gerar Questionário</a>
       </li>
       <li class="nav-li-style">
         <a class="nav-link-style" href="login.php">Sair</a>

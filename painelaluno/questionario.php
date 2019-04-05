@@ -15,33 +15,15 @@
   <!--Header-->
     <?php include "segmentos/header.php"; ?>
   <!--fim header-->
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!--Cadastro marcações-->
-        <div class="cadastro">
-            <div class="form-group">
-                Selecionar categoria da imagem:
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Categoria #1</option>
-                    <option>Categoria #2</option>
-                    <option>Categoria #3</option>
-                    <option>Categoria #4</option>
-                    <option>Categoria #5</option>
-                    <option>Categoria ...</option>
-                </select>
-                <input class="btn btn-primary mt-3" type="submit" value="Gerar questionário">
-            </div>
-        </div>
-    </div>
-    <!--fim marcações-->
-
+    
     <!--area do questionario-->
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-md-8">
                 <img class="img-fluid" src="../imagens/slide02.jpg" alt="teste">
+                <div style="text-align:center;" id="tempo" class="mt-4">
+                    <b>Tempo restante:</b> 2:40
+                </div>
             </div>
             <div class="col-md-4 center">
                 <h4>Descreva os pontos:</h4>
