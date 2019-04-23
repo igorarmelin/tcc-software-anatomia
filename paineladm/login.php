@@ -1,3 +1,8 @@
+<?php 
+require_once 'funcoes/usuarios.php';
+$u = new Usuario();
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -26,21 +31,57 @@
                             <h3 class="mb-0 title">Login</h3>
                         </div>
                         <div class="card-body">
-                            <form action="#" role="form" autocomplete="off" id="formAcesso" novalidate="" method="POST">
+                            <form method="POST">
                                 <div class="form-group">
-                                    <label for="admLogin">Usuário</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="admLogin" id="admLogin" required="">
+                                    <label for="dscProfessor">Usuário</label>
+                                    <input name="dscProfessor" type="text" class="form-control form-control-lg rounded-0" autofocus="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="admSenha">Senha</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="admSenha" required="">
+                                    <label for="senhaProfessor">Senha</label>
+                                    <input name="senhaProfessor" type="password" class="form-control form-control-lg rounded-0">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg float-right" id="btnAcessarAdm">Acessar</button>
+                                <input type="submit" class="btn btn-primary btn-lg float-right" value="Acessar">
                             </form>
                         </div>
                         <!--/card-block-->
                     </div>
                     <!-- /form card login -->
+                    <?php
+                    if(isset($_POST['dscProfessor']))
+                    {
+                        $dscProfessor = addslashes($_POST['dscProfessor']);
+                        $senhaProfessor = addslashes($_POST['senhaProfessor']);
+                        
+                        if(!empty($dscProfessor) && !empty($senhaProfessor))
+                        {
+                            $u->conectar("db_anatomia","localhost","root","");
+                            if($u->msgErro == "")
+                            {
+                                if($u->logar($dscProfessor,$senhaProfessor))
+                                {
+                                    header("location: index-adm.php");
+                                }
+                                else
+                                {
+                                    ?>
+                                    Usuário e/ou senha estão incorretos!
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                <?php echo "Erro: ".$u->msgErro; ?>
+                                <?php
+                            }
+                        }else
+                        {
+                            ?>
+                            Preencha todos os campos!
+                            <?php
+                        }
+                    }
+                    ?>
 
                 </div>
 

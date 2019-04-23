@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['idProfessor']))
+	{
+		header("location: login.php");
+		exit;
+	}
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>

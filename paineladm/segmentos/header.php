@@ -5,7 +5,7 @@
     </a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="login.php">Sair</a>
+        <a class="nav-link" href="funcoes/sair.php">Sair</a>
       </li>
     </ul>
   </nav>
