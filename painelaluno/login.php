@@ -1,6 +1,6 @@
 <?php 
-    require_once 'funcoes/usuarios.php';
-    $u = new Usuario();
+    require_once 'funcoes/alunos.php';
+    $u = new Aluno();
 ?>
 
 <!doctype html>

@@ -1,6 +1,6 @@
 <?php
 
-Class Usuario
+Class Aluno
 {
 	private $pdo;
 	public $msgErro = "";//tudo ok
@@ -40,7 +40,7 @@ Class Usuario
 	}
 
 
-	public function logar_aluno($raAluno, $senhaAluno)
+	public function logar($raAluno, $senhaAluno)
 	{
 		global $pdo;
 		//verificar se o email e senha estao cadastrados, se sim
