@@ -1,3 +1,8 @@
+<?php
+	require_once 'funcoes/usuarios.php';
+	$u = new Usuario();
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -25,29 +30,81 @@
                             <h3 class="mb-0 title">Registro</h3>
                         </div>
                         <div class="card-body">
-                            <form action="#" role="form" autocomplete="off" id="formAcesso" novalidate="" method="POST">
+                            <form method="POST">
                                 <div class="form-group">
-                                    <label for="alunoRA">R.A</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="alunoRA" id="alunoRA" required>
+                                    <label for="raAluno">R.A</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="raAluno" id="raAluno" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="alunoEmail">E-mail:</label>
-                                    <input type="email" class="form-control form-control-lg rounded-0" id="alunoEmail" required>
+                                    <label for="emailAluno">E-mail:</label>
+                                    <input type="email" class="form-control form-control-lg rounded-0" name="emailAluno" id="emailAluno" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="alunoSenha">Senha:</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="alunoSenha" required>
+                                    <label for="senhaAluno">Senha:</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" name="senhaAluno" id="senhaAluno" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="alunoConfirmarSenha">Confirmar Senha:</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="alunoConfirmarSenha" required>
+                                    <input type="password" class="form-control form-control-lg rounded-0" name="alunoConfirmarSenha" id="alunoConfirmarSenha" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg float-right" id="btnRegistrarAluno">Registrar-se</button>
+                                <input type="submit" class="btn btn-primary btn-lg float-right" value="Registrar-se">
                             </form>
                         </div>
                         <!--/card-block-->
                     </div>
                     <!-- /form card login -->
+                    <?php
+                    //verificar se clicou no botao
+                    if(isset($_POST['raAluno']))
+                    {
+                        $raAluno = addslashes($_POST['raAluno']);
+                        $emailAluno = addslashes($_POST['emailAluno']);
+                        $senhaAluno = addslashes($_POST['senhaAluno']);
+                        $alunoConfirmarSenha = addslashes($_POST['alunoConfirmarSenha']);
+                        //verificar se esta preenchido
+                        if(!empty($raAluno) && !empty($emailAluno) && !empty($senhaAluno) && !empty($alunoConfirmarSenha))
+                        {
+                            $u->conectar("db_anatomia","localhost","root","");
+                            if($u->msgErro == "")//se esta tudo ok
+                            {
+                                if($senhaAluno == $alunoConfirmarSenha)
+                                {
+                                    if($u->cadastrar($raAluno, $emailAluno, $senhaAluno))
+                                    {
+                                        ?>
+                                        Cadastrado com sucesso! <a href="login.php"> Acesse </a> para entrar!
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                            Email ja cadastrado!
+                                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    ?>
+                                        Senhas não correspondem
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                    <?php echo "Erro: ".$u->msgErro;?>
+                                <?php
+                            }
+                        }else
+                        {
+                            ?>
+                                Preencha todos os campos!
+                            <?php
+                        }
+                    }
+
+
+                    ?>
 
                 </div>
 

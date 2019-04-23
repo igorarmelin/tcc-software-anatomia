@@ -1,3 +1,8 @@
+<?php 
+    require_once 'funcoes/usuarios.php';
+    $u = new Usuario();
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -26,24 +31,60 @@
                             <h3 class="mb-0 title">Login</h3>
                         </div>
                         <div class="card-body">
-                            <form action="#" role="form" autocomplete="off" id="formAcesso" novalidate="" method="POST">
+                            <form method="POST">
                                 <div class="form-group">
-                                    <label for="alunoLogin">R.A</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="alunoLogin" id="alunoLogin" required>
+                                    <label for="raAluno">R.A</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="raAluno" id="raAluno" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="alunoSenha">Senha</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="alunoSenha" required>
+                                    <label for="senhaAluno">Senha</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" name="senhaAluno" id="senhaAluno" required>
                                 </div>
-                                    <a href="registro.html" target="_blank">
+                                    <a href="registro.php" target="_blank">
                                         Registrar
                                     </a>
-                                <button type="submit" class="btn btn-primary btn-lg float-right" id="btnAcessarAluno">Acessar</button>
+                                <input type="submit" class="btn btn-primary btn-lg float-right" value="Acessar">
                             </form>
                         </div>
                         <!--/card-block-->
                     </div>
                     <!-- /form card login -->
+                    <?php
+                    if(isset($_POST['raAluno']))
+                    {
+                        $raAluno = $_POST['raAluno'];
+                        $senhaAluno = $_POST['senhaAluno'];
+                        
+                        if(!empty($raAluno) && !empty($senhaAluno))
+                        {
+                            $u->conectar("db_anatomia","localhost","root","");
+                            if($u->msgErro == "")
+                            {
+                                if($u->logar($raAluno,$senhaAluno))
+                                {
+                                    header("location: index-aluno.php");
+                                }
+                                else
+                                {
+                                    ?>
+                                        RA e/ou senha estão incorretos!
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                    <?php echo "Erro: ".$u->msgErro; ?>
+                                <?php
+                            }
+                        }else
+                        {
+                            ?>
+                                Preencha todos os campos!
+                            <?php
+                        }
+                    }
+                    ?>
 
                 </div>
 
