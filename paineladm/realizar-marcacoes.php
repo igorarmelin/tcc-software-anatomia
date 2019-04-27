@@ -1,3 +1,10 @@
+<?php 
+include '../classes_gerais/conexao.php';
+
+$consulta = "SELECT dscCategoria FROM tbdcategoria";
+$con = $mysqli->query($consulta) or die($mysqli->error);
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -32,12 +39,10 @@
         <div class="form-group">
             Selecionar categoria da imagem:
             <select class="form-control" id="exampleFormControlSelect1">
-                <option>Categoria #1</option>
-                <option>Categoria #2</option>
-                <option>Categoria #3</option>
-                <option>Categoria #4</option>
-                <option>Categoria #5</option>
-                <option>Categoria ...</option>
+              <?php while($dado = $con->fetch_array()) { ?>
+                <option><?php echo $dado['dscCategoria']; ?></option>
+                <?php } 
+              ?>
             </select>
             <input class="btn btn-primary mt-3" type="submit" value="Ver fotos">
         </div>

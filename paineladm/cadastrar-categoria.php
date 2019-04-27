@@ -36,7 +36,7 @@
     <div class="cadastro">
         <form method="POST">
             <div class="form-group">
-                <label for="cadastrarCategoria">Nova categoria: </label>
+                <label for="cadastrarCategoria">Cadastrar Categoria </label>
                 <input type="text" class="form-control" name="cadastrarCategoria">
                 <input type="submit" class="btn btn-primary mt-3" value="Cadastrar"/>
             </div>
@@ -54,7 +54,7 @@
 
           if($u->cadastrar_categoria($categoria)){
             ?>
-            Cadastrado com sucesso!
+            Categoria cadastrada com sucesso!
             <?php
           }else{
             ?>

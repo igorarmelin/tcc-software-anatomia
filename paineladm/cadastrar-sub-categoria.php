@@ -1,6 +1,5 @@
 <?php 
 include '../classes_gerais/conexao.php';
-
 $consulta = "SELECT dscCategoria FROM tbdcategoria";
 $con = $mysqli->query($consulta) or die($mysqli->error);
 ?>
