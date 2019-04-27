@@ -1,3 +1,10 @@
+<?php 
+include '../classes_gerais/conexao.php';
+
+$consulta = "SELECT raAluno, nomeAluno FROM tbdaluno";
+$con = $mysqli->query($consulta) or die($mysqli->error);
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -31,8 +38,14 @@
     <table>
         <tr>
             <th>RA</th>
-            <th>ALUNO</th>
+            <th>NOME</th>
         </tr>
+        <?php while($dado = $con->fetch_array()) { ?>
+        <tr>
+          <td><?php echo $dado['raAluno']; ?></td>
+          <td><?php echo $dado['nomeAluno']; ?></td>
+        </tr>
+        <?php } ?>
     </table>
     <!--Fim da lista-->
 

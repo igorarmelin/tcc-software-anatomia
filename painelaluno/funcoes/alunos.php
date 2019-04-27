@@ -16,12 +16,12 @@ Class Aluno
 		}
 	}
 
-	public function cadastrar($raAluno, $emailAluno, $senhaAluno)
+	public function cadastrar($raAluno, $nomeAluno, $senhaAluno)
 	{
 		global $pdo;
-		//verificar se já existe o email cadastrado
-		$sql = $pdo->prepare("SELECT idAluno FROM tbdaluno WHERE emailAluno = :e");
-		$sql->bindValue(":e",$emailAluno);
+		//verificar se já existe o nome cadastrado
+		$sql = $pdo->prepare("SELECT idAluno FROM tbdaluno WHERE nomeAluno = :e");
+		$sql->bindValue(":e",$nomeAluno);
 		$sql->execute();
 		if($sql->rowCount() > 0)
 		{
@@ -30,9 +30,9 @@ Class Aluno
 		else
 		{
 			//caso nao, Cadastrar
-			$sql = $pdo->prepare("INSERT INTO tbdaluno(raAluno, emailAluno, senhaAluno) VALUES(:ra, :e, :s)");
+			$sql = $pdo->prepare("INSERT INTO tbdaluno(raAluno, nomeAluno, senhaAluno) VALUES(:ra, :e, :s)");
 			$sql->bindValue(":ra",$raAluno);
-			$sql->bindValue(":e",$emailAluno);
+			$sql->bindValue(":e",$nomeAluno);
 			$sql->bindValue(":s",md5($senhaAluno));
 			$sql->execute();
 			return true; //tudo ok
@@ -43,7 +43,7 @@ Class Aluno
 	public function logar($raAluno, $senhaAluno)
 	{
 		global $pdo;
-		//verificar se o email e senha estao cadastrados, se sim
+		//verificar se o nome e senha estao cadastrados, se sim
 		$sql = $pdo->prepare("SELECT idAluno FROM tbdaluno WHERE raAluno = :ra AND senhaAluno = :s");
 		$sql->bindValue(":ra",$raAluno);
 		$sql->bindValue(":s",md5($senhaAluno));

@@ -1,3 +1,8 @@
+<?php
+	include 'funcoes/usuarios.php';
+  $u = new Usuario();
+?>
+
 <!doctype html>
 <html lang="pt">
   <head>
@@ -29,15 +34,42 @@
 
     <!--Cadastro categorias-->
     <div class="cadastro">
-        <form action="#" method="GET">
+        <form method="POST">
             <div class="form-group">
                 <label for="cadastrarCategoria">Nova categoria: </label>
-                <input type="text" class="form-control" id="cadastrarCategoria">
-                <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+                <input type="text" class="form-control" name="cadastrarCategoria">
+                <input type="submit" class="btn btn-primary mt-3" value="Cadastrar"/>
             </div>
         </form>
     </div>
     <!--fim categorias-->
+    <?php
+    //verificar se clicou no botao
+    if(isset($_POST['cadastrarCategoria'])){
+        $categoria = addslashes($_POST['cadastrarCategoria']);
+        
+        //verificar se esta preenchido
+        if(!empty($categoria)){
+          $u->conectar("db_anatomia","localhost","root","");
+
+          if($u->cadastrar_categoria($categoria)){
+            ?>
+            Cadastrado com sucesso!
+            <?php
+          }else{
+            ?>
+                Categoria já cadastrada!
+            <?php
+          }                          
+        }else{
+          ?>
+          É necessário inserir a categoria!
+          <?php
+        }
+            
+    }
+
+    ?>
 
   </div>
 

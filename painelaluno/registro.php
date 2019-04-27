@@ -36,8 +36,8 @@
                                     <input type="text" class="form-control form-control-lg rounded-0" name="raAluno" id="raAluno" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="emailAluno">E-mail:</label>
-                                    <input type="email" class="form-control form-control-lg rounded-0" name="emailAluno" id="emailAluno" required>
+                                    <label for="nomeAluno">Nome:</label>
+                                    <input type="nome" class="form-control form-control-lg rounded-0" name="nomeAluno" id="nomeAluno" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="senhaAluno">Senha:</label>
@@ -58,18 +58,18 @@
                     if(isset($_POST['raAluno']))
                     {
                         $raAluno = addslashes($_POST['raAluno']);
-                        $emailAluno = addslashes($_POST['emailAluno']);
+                        $nomeAluno = addslashes($_POST['nomeAluno']);
                         $senhaAluno = addslashes($_POST['senhaAluno']);
                         $alunoConfirmarSenha = addslashes($_POST['alunoConfirmarSenha']);
                         //verificar se esta preenchido
-                        if(!empty($raAluno) && !empty($emailAluno) && !empty($senhaAluno) && !empty($alunoConfirmarSenha))
+                        if(!empty($raAluno) && !empty($nomeAluno) && !empty($senhaAluno) && !empty($alunoConfirmarSenha))
                         {
                             $u->conectar("db_anatomia","localhost","root","");
                             if($u->msgErro == "")//se esta tudo ok
                             {
                                 if($senhaAluno == $alunoConfirmarSenha)
                                 {
-                                    if($u->cadastrar($raAluno, $emailAluno, $senhaAluno))
+                                    if($u->cadastrar($raAluno, $nomeAluno, $senhaAluno))
                                     {
                                         ?>
                                         Cadastrado com sucesso! <a href="login.php"> Acesse </a> para entrar!
@@ -78,7 +78,7 @@
                                     else
                                     {
                                         ?>
-                                            Email ja cadastrado!
+                                            nome ja cadastrado!
                                         <?php
                                     }
                                 }
