@@ -38,7 +38,7 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
       <form method="POST">
         <div class="form-group">
             Selecionar categoria da imagem:
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="exampleFormControlSelect1" name="">
             <?php while($dado = $con->fetch_array()) { ?>
               <?php echo "<option value='{$dado['idCategoria']}'>{$dado['dscCategoria']}</option>"; ?>
               <?php } 
@@ -55,12 +55,13 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
     //verificar se clicou no botao
     if(isset($_POST['cadastrarSubcategoria'])){
         $subcategoria = addslashes($_POST['cadastrarSubcategoria']);
+        $valorcategoria = addslashes($_POST['idCategoria']);
         
         //verificar se esta preenchido
         if(!empty($subcategoria)){
           $u->conectar("db_anatomia","localhost","root","");
 
-          if($u->cadastrar_subcategoria($subcategoria)){
+          if($u->cadastrar_subcategoria($subcategoria, $valorcategoria)){
             ?>
             Sub-categoria cadastrada com sucesso!
             <?php

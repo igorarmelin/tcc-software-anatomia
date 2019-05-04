@@ -62,10 +62,25 @@ Class Usuario
 		}
 	}
 
-	public function cadastrar_subcategoria($subcategoria){
+	public function cadastrar_subcategoria($subcategoria, $valorcategoria){
 
-
+		global $pdo;
+		//verificar se já existe a sub-categoria cadastrada
+		$sql = $pdo->prepare("SELECT idSubcategoria FROM tbdsubcategoria WHERE dscSubcategoria = :s");
+		$sql->bindValue(":s", $subcategoria);
+		$sql->execute();
 		
+		if($sql->rowCount() > 0){
+			return false;
+		}
+		else{
+			$sql = $pdo->prepare("INSERT INTO tbdsubcategoria(dscSubcategoria, idCategoria) VALUES(:sub, :cat)");
+			$sql->bindValues(":sub", $subcategoria);
+			$sql->bindValues(":cat", $valorcategoria);
+			$sql->execute();
+			return true;
+		}
+
 	}
 }
 
