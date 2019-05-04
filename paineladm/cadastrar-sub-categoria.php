@@ -1,7 +1,10 @@
 <?php 
 include '../classes_gerais/conexao.php';
+include 'funcoes/usuarios.php';
 $consulta = "SELECT * FROM tbdcategoria";
 $con = $mysqli->query($consulta) or die($mysqli->error);
+$u = new Usuario();
+
 ?>
 
 <!doctype html>
