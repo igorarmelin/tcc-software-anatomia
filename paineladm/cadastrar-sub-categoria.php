@@ -1,6 +1,6 @@
 <?php 
 include '../classes_gerais/conexao.php';
-$consulta = "SELECT dscCategoria FROM tbdcategoria";
+$consulta = "SELECT * FROM tbdcategoria";
 $con = $mysqli->query($consulta) or die($mysqli->error);
 ?>
 
@@ -35,11 +35,12 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
 
     <!--Cadastro imagens-->
     <div class="cadastro">
+      <form method="POST">
         <div class="form-group">
             Selecionar categoria da imagem:
             <select class="form-control" id="exampleFormControlSelect1">
             <?php while($dado = $con->fetch_array()) { ?>
-              <option><?php echo $dado['dscCategoria']; ?></option>
+              <?php echo "<option value='{$dado['idCategoria']}'>{$dado['dscCategoria']}</option>"; ?>
               <?php } 
             ?>
             </select>
@@ -47,8 +48,36 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
             <input type="text" class="form-control" name="cadastrarSubCategoria">
             <input class="btn btn-primary mt-3" type="submit" value="Cadastrar">
         </div>
+      </form>
     </div>
     <!--fim imagens-->
+    <?php
+    //verificar se clicou no botao
+    if(isset($_POST['cadastrarSubcategoria'])){
+        $subcategoria = addslashes($_POST['cadastrarSubcategoria']);
+        
+        //verificar se esta preenchido
+        if(!empty($subcategoria)){
+          $u->conectar("db_anatomia","localhost","root","");
+
+          if($u->cadastrar_subcategoria($subcategoria)){
+            ?>
+            Sub-categoria cadastrada com sucesso!
+            <?php
+          }else{
+            ?>
+                Sub-categoria já cadastrada!
+            <?php
+          }                          
+        }else{
+          ?>
+          É necessário inserir a sub-categoria!
+          <?php
+        }
+            
+    }
+
+    ?>
 
   </div>
 

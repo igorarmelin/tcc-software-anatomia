@@ -61,6 +61,12 @@ Class Usuario
 			return true; //tudo ok
 		}
 	}
+
+	public function cadastrar_subcategoria($subcategoria){
+
+
+		
+	}
 }
 
 
