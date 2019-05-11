@@ -1,8 +1,13 @@
 <?php 
 include '../classes_gerais/conexao.php';
+include 'funcoes/usuarios.php';
 
 $consulta = "SELECT dscCategoria FROM tbdcategoria";
+$consulta2 = "SELECT dscSubcategoria FROM tbdsubcategoria";
 $con = $mysqli->query($consulta) or die($mysqli->error);
+$con2 = $mysqli->query($consulta2) or die($mysqli->error);
+
+$u = new Usuario();
 ?>
 
 <!doctype html>
@@ -37,11 +42,17 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
     <!--Cadastro imagens-->
     <div class="cadastro">
         <div class="form-group">
-            <input type="file" class="form-control-file mb-3" id="exampleInputFile" />
+            <input type="file" name="imagem" class="form-control-file mb-3" enctype="multipart/form-data"/>
             Selecionar categoria da imagem:
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control mt-2">
+              <option disabled>CATEGORIAS:</option>
               <?php while($dado = $con->fetch_array()) { ?>
                 <option><?php echo $dado['dscCategoria']; ?></option>
+                <?php } 
+              ?>
+              <option disabled>SUB-CATEGORIAS:</option>
+              <?php while($dado2 = $con2->fetch_array()) { ?>
+                <option><?php echo $dado2['dscSubcategoria']; ?></option>
                 <?php } 
               ?>
             </select>
@@ -50,6 +61,7 @@ $con = $mysqli->query($consulta) or die($mysqli->error);
     </div>
     <!--fim imagens-->
 
+    
   </div>
 
 
