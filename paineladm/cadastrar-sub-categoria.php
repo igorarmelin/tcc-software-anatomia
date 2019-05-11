@@ -41,30 +41,30 @@ $u = new Usuario();
       <form method="POST">
         <div class="form-group">
             Selecionar categoria da imagem:
-            <select class="form-control" id="exampleFormControlSelect1" name="">
+            <select class="form-control" name="selecionarCategoria">
             <?php while($dado = $con->fetch_array()) { ?>
               <?php echo "<option value='{$dado['idCategoria']}'>{$dado['dscCategoria']}</option>"; ?>
               <?php } 
             ?>
             </select>
-            <label class="mt-5" for="cadastrarSubCategoria">Nova sub-categoria: </label>
-            <input type="text" class="form-control" name="cadastrarSubCategoria">
-            <input class="btn btn-primary mt-3" type="submit" value="Cadastrar">
+            <label class="mt-5" for="cadastrarSubcategoria">Nova sub-categoria: </label>
+            <input type="text" class="form-control" name="cadastrarSubcategoria">
+            <input class="btn btn-primary mt-3" type="submit" name="submit" value="Cadastrar">
         </div>
       </form>
     </div>
     <!--fim imagens-->
     <?php
     //verificar se clicou no botao
-    if(isset($_POST['cadastrarSubcategoria'])){
-        $subcategoria = addslashes($_POST['cadastrarSubcategoria']);
-        $valorcategoria = addslashes($_POST['idCategoria']);
+    if(isset($_POST['submit'])){
+        $subCategoria = $_POST['cadastrarSubcategoria'];
+        $valorCategoria = $_POST['selecionarCategoria'];
         
         //verificar se esta preenchido
-        if(!empty($subcategoria)){
+        if(!empty($subCategoria)){
           $u->conectar("db_anatomia","localhost","root","");
 
-          if($u->cadastrar_subcategoria($subcategoria, $valorcategoria)){
+          if($u->cadastrar_subcategoria($subCategoria, $valorCategoria)){
             ?>
             Sub-categoria cadastrada com sucesso!
             <?php
