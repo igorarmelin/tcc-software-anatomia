@@ -1,34 +1,34 @@
 # tcc-software-anatomia
 
-********* INSTRUÇÕES DE INSTALAÇÃO ***********
+********* INSTRUï¿½ï¿½ES DE INSTALAï¿½ï¿½O ***********
 
 Banco de dados: Mysql;
-Para criação das tabelas, ir até a pasta 'bd' e importar no MySQL o arquivo contido neste diretório;
+Para criaï¿½ï¿½o das tabelas, ir atï¿½ a pasta 'bd' e importar no MySQL o arquivo contido neste diretï¿½rio;
 Utilizar: XAMPP ou WAMP para iniciar o projeto.
 
-********** INSTRUÇÕES DE USO **********
+********** INSTRUï¿½ï¿½ES DE USO **********
 
 Painel ADM login: admin / admin
 
-Funções prontas para uso:
+Funï¿½ï¿½es prontas para uso:
 	Visualizar alunos cadastrados; 
 	Cadastrar de categorias;
 	Cadastrar de subcategorias;
 	Upload de imagens.
 
-Funções à programar:
-	Realizar marcações.
+Funï¿½ï¿½es ï¿½ programar:
+	Realizar marcaï¿½ï¿½es.
 ----------------------------------------
 Painel ALUNO login: 12345 / 123
 
-Funções prontas para uso:
+Funï¿½ï¿½es prontas para uso:
 	Cadastro e login;
 	Layout das telas.
 
-Funções à programar:
+Funï¿½ï¿½es ï¿½ programar:
 	Visualizar fotos;
-	Gerar questionário;
+	Gerar questionï¿½rio;
 	Visualizar gabarito.
 
-* O layout da tela de gabarito é visivel em "localhost/TCC/Software/painelaluno/gabarito.php"
+*** O layout da tela de gabarito ï¿½ visivel em "localhost/TCC/Software/painelaluno/gabarito.php"
 
