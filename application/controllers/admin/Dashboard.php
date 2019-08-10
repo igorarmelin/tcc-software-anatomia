@@ -44,14 +44,19 @@ class Dashboard extends CI_Controller {
 	public function cadastroCategorias()
 	{
 		$this->load->view('layout/admin/sidebar');
-		$this->load->view('admin/cadastro_subcategorias');
+		$this->load->view('admin/cadastro_categorias');
 		$this->load->view('layout/admin/footer');
 	}
 
 	public function cadastroSubcategorias()
 	{
 		$this->load->view('layout/admin/sidebar');
-		$this->load->view('admin/cadastro_subcategorias');
+
+		$this->load->model('admin/tbdcategoria');
+		$lista = $this->tbdcategoria->listarCategorias();
+		$dados = array('categorias' => $lista);
+		$this->load->view('admin/cadastro_subcategorias', $dados);
+
 		$this->load->view('layout/admin/footer');
 	}
 
