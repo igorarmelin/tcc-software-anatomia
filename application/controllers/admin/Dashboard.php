@@ -62,8 +62,14 @@ class Dashboard extends CI_Controller {
 
 	public function uploadFotos()
 	{
-		$this->load->view('layout/admin/sidebar');
-		$this->load->view('admin/upload_fotos');
+		$this->load->model('admin/tbdcategoria');
+		$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		
+		$this->load->model('admin/tbdsubcategoria');
+        $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
+
+		$this->load->view('layout/admin/sidebar');	
+		$this->load->view('admin/upload_fotos', $dados);
 		$this->load->view('layout/admin/footer');
 	}
 

@@ -20,8 +20,20 @@
                             <input type="file" name="foto" required>
                         </div>
                         <div class="form-group">
-                            <!--AQUI SERÁ O CODIGO DE SELEÇÃO DE CATEGORIAS E SUBCATEGORIAS-->
-                            <!--PROVAVELMENTE SERÁ NO FORMATO "FORM-CHECK" OU "SELECT MULTIPLE", ASSIM O ADM PODERÁ SELECIONAR QUANTAS CATEGORIAS/SUBCATEGORIAS DESEJAR-->
+                            <label for="categorias[]">Selecione a(s) categoria(s) referente(s) a foto:</label>
+                            <select name="categorias[]" class="form-control" multiple="multiple">
+                                <?php foreach ($listarCategorias->result() as $row) : ?>
+                                    <option value="<?php echo $row->idCategoria; ?>"><?php echo $row->dscCategoria; ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subcategorias[]">Selecione a(s) subcategoria(s) referente(s) a foto:</label>
+                            <select name="subcategorias[]" class="form-control" multiple="multiple">
+                                <?php foreach ($listarSubcategorias->result() as $row) : ?>
+                                    <option value="<?php echo $row->idSubcategoria; ?>"><?php echo $row->dscSubcategoria; ?></option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                     <?php 
                         echo form_close(); 

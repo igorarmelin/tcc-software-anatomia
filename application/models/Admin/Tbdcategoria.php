@@ -11,6 +11,8 @@ class Tbdcategoria extends CI_Model {
 
 	function listarCategorias()
     {
-        return $this->db->get('tbdcategoria')->result_array();
+        $query = $this->db->get("tbdcategoria");
+
+        return $query;
     }
 }
