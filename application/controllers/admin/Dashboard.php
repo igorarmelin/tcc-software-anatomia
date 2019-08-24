@@ -34,8 +34,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('layout/admin/sidebar');
 
 		$this->load->model('tbdaluno');
-		$lista = $this->tbdaluno->listarAlunos();
-		$dados = array('alunos' => $lista);
+        $dados["listarAlunos"] = $this->tbdaluno->listarAlunos();
 		$this->load->view('admin/alunos_cadastrados', $dados);
 		
 		$this->load->view('layout/admin/footer');
@@ -53,8 +52,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('layout/admin/sidebar');
 
 		$this->load->model('admin/tbdcategoria');
-		$lista = $this->tbdcategoria->listarCategorias();
-		$dados = array('categorias' => $lista);
+        $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
 		$this->load->view('admin/cadastro_subcategorias', $dados);
 
 		$this->load->view('layout/admin/footer');
@@ -74,7 +72,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function marcacaoFotos()
-	{
+	{		
 		$this->load->view('layout/admin/sidebar');
 		$this->load->view('admin/marcacao_fotos');
 		$this->load->view('layout/admin/footer');

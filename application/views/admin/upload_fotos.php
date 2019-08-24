@@ -2,7 +2,7 @@
                 <h1 class="text-center">Upload de Fotos</h1>
                 <div class="container">
                     <?php
-                        echo form_open('admin/upload/index');
+                        echo form_open_multipart('admin/upload/index');
                         echo validation_errors();
                         if (isset($success))
                         echo '<p>'.$success.'</p>';
@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label for="categorias[]">Selecione a(s) categoria(s) referente(s) a foto:</label>
-                            <select name="categorias[]" class="form-control" multiple="multiple">
+                            <select name="categorias[]" class="form-control" multiple="multiple" required>
                                 <?php foreach ($listarCategorias->result() as $row) : ?>
                                     <option value="<?php echo $row->idCategoria; ?>"><?php echo $row->dscCategoria; ?></option>
                                 <?php endforeach ?>
@@ -35,6 +35,7 @@
                                 <?php endforeach ?>
                             </select>
                         </div>
+                        <input type="submit" class="btn btn-primary btn-lg float-right" value="Cadastrar">
                     <?php 
                         echo form_close(); 
                     ?>

@@ -9,10 +9,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($alunos as $aluno) : ?>
+                            <?php foreach ($listarAlunos->result() as $row) : ?>
                             <tr>
-                                <td><?= $aluno['raAluno'] ?></td>
-                                <td><?= $aluno['nomeAluno'] ?></td>
+                                <td><?php echo $row->raAluno; ?></td>
+                                <td><?php echo $row->nomeAluno; ?></td>
                             </tr>
                             <?php endforeach ?>
                         </tbody>

@@ -22,8 +22,7 @@ class Subcategorias extends CI_Controller {
         { 
             $this->load->view('layout/admin/sidebar');
             $this->load->model('admin/tbdcategoria');
-            $lista = $this->tbdcategoria->listarCategorias();
-            $dados = array('categorias' => $lista);
+            $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
             $this->load->view('admin/cadastro_subcategorias', $dados);
 
             $this->load->view('layout/admin/footer');
@@ -33,10 +32,10 @@ class Subcategorias extends CI_Controller {
             $this->load->model('admin/tbdsubcategoria');
             $this->tbdsubcategoria->cadastrarSubcategoria();
 
+            $dados['success'] = "Subcategoria cadastrada com sucesso!";
             $this->load->view('layout/admin/sidebar');
             $this->load->model('admin/tbdcategoria');
-            $lista = $this->tbdcategoria->listarCategorias();
-            $dados = array('categorias' => $lista);
+            $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
             $this->load->view('admin/cadastro_subcategorias', $dados);
 
             $this->load->view('layout/admin/footer');

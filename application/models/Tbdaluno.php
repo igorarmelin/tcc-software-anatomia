@@ -19,6 +19,8 @@ class Tbdaluno extends CI_Model
 
     function listarAlunos()
     {
-        return $this->db->get('tbdaluno')->result_array();
+        $query = $this->db->get("tbdaluno");
+
+        return $query;
     }
 }
