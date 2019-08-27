@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label for="foto">Selecione a foto:</label>
-                            <input type="file" name="foto" required>
+                            <input type="file" class="form-control-file" name="foto" required>
                         </div>
                         <div class="form-group">
                             <label for="categorias[]">Selecione a(s) categoria(s) referente(s) a foto:</label>

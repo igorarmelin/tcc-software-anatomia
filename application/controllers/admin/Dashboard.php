@@ -74,7 +74,11 @@ class Dashboard extends CI_Controller {
 	public function marcacaoFotos()
 	{		
 		$this->load->view('layout/admin/sidebar');
-		$this->load->view('admin/marcacao_fotos');
+
+		$this->load->model('admin/tbdcategoria');
+        $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		$this->load->view('admin/marcacao_fotos', $dados);
+
 		$this->load->view('layout/admin/footer');
 	}
 }

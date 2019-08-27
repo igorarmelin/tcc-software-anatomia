@@ -11,14 +11,13 @@ class Tbdimagem extends CI_Model {
         $this->db->insert('tbdimagem', $data);
 
         $dados_img_cat['idImagem'] = $this->db->insert_id();
+        $dados_img_sub['idImagem'] = $this->db->insert_id();
 
         foreach ($this->input->post('categorias[]') as $single) 
         {
             $dados_img_cat['idCategoria'] = $single;
             $this->db->insert('imagem_categoria', $dados_img_cat);
         }
-
-        $dados_img_sub['idImagem'] = $this->db->insert_id();
 
         foreach ($this->input->post('subcategorias[]') as $single) 
         {
