@@ -26,4 +26,15 @@ class Tbdimagem extends CI_Model {
         }
 
     }
+
+    function exibeFotos($categoria)
+    {
+        $query = $this->db->select('tituloImagem', 'dscImagem', 'caminhoImagem')
+                            ->from('tbdimagem')
+                            ->join('imagem_categoria', 'tbdimagem.idImagem = imagem_categoria.idImagem', 'inner')
+                            ->where('idCategoria', $categoria)
+                            ->get();
+        
+        return $query;
+    }
 }

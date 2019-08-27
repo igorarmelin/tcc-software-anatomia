@@ -19,53 +19,15 @@
                 ?>
 
                 <div class="container-galeria row d-flex justify-content-center">
-                    <div class="card mx-3 my-3" style="width: 18rem;">
-                        <img class="card-img-top" src="../../../assets/upload/coracao.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <?php foreach ($exibeFotos->result() as $row) : ?>
+                        <div class="card mx-3 my-3" style="width: 18rem;">
+                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?php echo $row->caminhoImagem; ?>" alt="<?php echo $row->tituloImagem; ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row->tituloImagem; ?></h5>
+                                <p class="card-text"><?php echo $row->dscImagem; ?></p>
+                                <a href="#" class="btn btn-primary">icone aqui</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card mx-3 my-3" style="width: 18rem;">
-                        <img class="card-img-top" src="../../../assets/upload/coracao.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card mx-3 my-3" style="width: 18rem;">
-                        <img class="card-img-top" src="../../../assets/upload/coracao.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card mx-3 my-3" style="width: 18rem;">
-                        <img class="card-img-top" src="../../../assets/upload/coracao.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card mx-3 my-3" style="width: 18rem;">
-                        <img class="card-img-top" src="../../../assets/upload/coracao.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card mx-3 my-3" style="width: 18rem;">
-                        <img class="card-img-top" src="../../../assets/upload/coracao.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </section>
