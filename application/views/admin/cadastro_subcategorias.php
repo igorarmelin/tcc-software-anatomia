@@ -2,7 +2,7 @@
                 <h1 class="text-center">Cadastro de Subcategorias</h1>
                 <div class="container">
                     <?php
-                        echo form_open('admin/subcategorias/index');
+                        echo form_open('admin/subcategorias/cadastrarSubcategorias');
                         echo validation_errors();
                         if (isset($success))
                         echo '<p>'.$success.'</p>';

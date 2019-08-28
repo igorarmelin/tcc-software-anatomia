@@ -2,7 +2,7 @@
                 <h1 class="text-center">Cadastro de Categorias</h1>
                 <div class="container">
                     <?php
-                        echo form_open('admin/categorias/index');
+                        echo form_open('admin/categorias/cadastraCategorias');
                         echo validation_errors();
                         if (isset($success))
                         echo '<p>'.$success.'</p>';

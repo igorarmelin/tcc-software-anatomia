@@ -5,11 +5,36 @@ class Subcategorias extends CI_Controller {
 
     public function __construct()
     { 
-        parent::__construct(); 
+        parent::__construct();
+        if(!$this->session->userdata('admin'))
+		{
+			redirect('admin');
+		} 
         $this->load->helper(array('form', 'url')); 
     }
 
+    function logout()
+	{
+		$data = $this->session->all_userdata();
+		foreach($data as $row => $rows_value)
+		{
+			$this->session->unset_userdata($row);
+		}
+		redirect('admin');
+	}
+
     public function index()
+    { 
+        $this->load->view('layout/admin/sidebar');
+
+		$this->load->model('admin/tbdcategoria');
+        $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		$this->load->view('admin/cadastro_subcategorias', $dados);
+
+		$this->load->view('layout/admin/footer'); 
+    }
+
+    public function cadastrarSubcategorias()
     {
 
         /* Load form validation library */ 

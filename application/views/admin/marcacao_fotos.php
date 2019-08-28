@@ -2,7 +2,7 @@
                 <h1 class="text-center">Marcação de Fotos</h1>
 
                 <?php
-                    echo form_open('admin/exibe_fotos/index');
+                    echo form_open('admin/marcacao/buscaFotos');
                 ?>
 
                     <label for="categoria">Selecione a categoria referente a foto desejada:</label>
@@ -19,12 +19,12 @@
                 ?>
 
                 <div class="container-galeria row d-flex justify-content-center">
-                    <?php foreach ($exibeFotos->result() as $row) : ?>
+                    <?php foreach ($fotos as $foto) : ?>
                         <div class="card mx-3 my-3" style="width: 18rem;">
-                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?php echo $row->caminhoImagem; ?>" alt="<?php echo $row->tituloImagem; ?>">
+                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>" alt="<?= $foto['tituloImagem']?>">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $row->tituloImagem; ?></h5>
-                                <p class="card-text"><?php echo $row->dscImagem; ?></p>
+                                <h5 class="card-title"><?= $foto['tituloImagem']?></h5>
+                                <p class="card-text"><?= $foto['dscImagem']?></p>
                                 <a href="#" class="btn btn-primary">icone aqui</a>
                             </div>
                         </div>

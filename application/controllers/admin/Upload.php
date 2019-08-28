@@ -5,11 +5,38 @@ class Upload extends CI_Controller {
 
     public function __construct()
     { 
-        parent::__construct(); 
-        $this->load->helper(array('form', 'url'));
+        parent::__construct();
+        if(!$this->session->userdata('admin'))
+		{
+			redirect('admin');
+		} 
+        $this->load->helper(array('form', 'url')); 
     }
 
+    function logout()
+	{
+		$data = $this->session->all_userdata();
+		foreach($data as $row => $rows_value)
+		{
+			$this->session->unset_userdata($row);
+		}
+		redirect('admin');
+	}
+
     public function index()
+    { 
+        $this->load->model('admin/tbdcategoria');
+		$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		
+		$this->load->model('admin/tbdsubcategoria');
+        $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
+
+		$this->load->view('layout/admin/sidebar');	
+		$this->load->view('admin/upload_fotos', $dados);
+		$this->load->view('layout/admin/footer');
+    }
+
+    public function cadastrarFoto()
     { 
         $tituloImg = $this->input->post('tituloImg');
         $foto = $_FILES['foto'];
@@ -25,7 +52,7 @@ class Upload extends CI_Controller {
         {
             $this->load->model('admin/tbdimagem');
             $this->tbdimagem->registraImagem($config);
-            redirect('admin/Dashboard/uploadFotos');
+            redirect('admin/upload/index');
         }
         else
         {

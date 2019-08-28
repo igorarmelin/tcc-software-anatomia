@@ -19,7 +19,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <a href="<?php echo site_url('admin/dashboard') ?>">
+                <a href="<?php echo site_url('admin/index') ?>">
                     <h4>FHO - Fundação Hermínio Ometto</h4>
                 </a>
             </div>
@@ -27,24 +27,24 @@
             <ul class="list-unstyled components">
                 <p>Menu Principal</p>
                 <li>
-                    <a href="<?php echo site_url('admin/dashboard/alunosCadastrados') ?>">Alunos Cadastrados</a>
+                    <a href="<?php echo site_url('admin/alunos/index') ?>">Alunos Cadastrados</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/dashboard/cadastroCategorias') ?>">Cadastro de Categorias</a>
+                    <a href="<?php echo site_url('admin/categorias/index') ?>">Cadastro de Categorias</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/dashboard/cadastroSubcategorias') ?>">Cadastro de Subcategorias</a>
+                    <a href="<?php echo site_url('admin/subcategorias/index') ?>">Cadastro de Subcategorias</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/dashboard/uploadFotos') ?>">Upload de Fotos</a>
+                    <a href="<?php echo site_url('admin/upload/index') ?>">Upload de Fotos</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/dashboard/marcacaoFotos') ?>">Marcação de Fotos</a>
+                    <a href="<?php echo site_url('admin/marcacao/index') ?>">Marcação de Fotos</a>
                 </li>
             </ul>
             <ul class="list-unstyled components">
                 <li>
-                    <a href="<?php echo base_url('index.php/admin/dashboard/logout') ?>">sair do sistema</a>
+                    <a href="<?php echo base_url('index.php/admin/logout') ?>">sair do sistema</a>
                 </li>
             </ul>
         </nav>

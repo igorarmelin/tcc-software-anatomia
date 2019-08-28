@@ -8,7 +8,7 @@ class Login extends CI_Controller {
         parent::__construct();
         if($this->session->userdata('admin'))
         {
-            redirect('admin/dashboard');
+            redirect('admin/index');
         }
     }
 
@@ -24,7 +24,7 @@ class Login extends CI_Controller {
         if($check)
         {
             $this->session->set_userdata('admin', $check);
-            redirect('admin/dashboard');
+            redirect('admin/index');
         }
         else
         {
