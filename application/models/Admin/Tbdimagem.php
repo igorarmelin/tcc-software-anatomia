@@ -27,12 +27,19 @@ class Tbdimagem extends CI_Model {
 
     }
 
-    function buscaFotos()
+    function buscar($busca)
     {
-        return $this->db->select('*')
+        if(empty($busca))
+            return array();
+        
+        $busca = $this->input->post('categorias');
+
+        $query = $this->db->select('*')
                             ->from('tbdimagem')
                             ->join('imagem_categoria', 'tbdimagem.idImagem = imagem_categoria.idImagem', 'inner')
-                            ->where('idCategoria', '3')
-                            ->get()->result_array();
+                            ->where('idCategoria', $busca)
+                            ->get();
+        
+        return $query->result_array();
     }
 }
