@@ -19,7 +19,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <a href="<?php echo site_url('dashboard') ?>">
+                <a href="<?php echo site_url('index') ?>">
                     <h4>FHO - Fundação Hermínio Ometto</h4>
                 </a>
             </div>
@@ -27,15 +27,15 @@
             <ul class="list-unstyled components">
                 <p>Menu Principal</p>
                 <li>
-                    <a href="<?php echo site_url('dashboard/verFotos') ?>">Ver Fotos</a>
+                    <a href="<?php echo site_url('fotos/index') ?>">Ver Fotos</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('dashboard/questionario') ?>">Questionário</a>
+                    <a href="<?php echo site_url('questionario/index') ?>">Questionário</a>
                 </li>
             </ul>
             <ul class="list-unstyled components">
                 <li>
-                    <a href="<?php echo base_url('index.php/dashboard/logout') ?>">sair do sistema</a>
+                    <a href="<?php echo base_url('index.php/logout/index') ?>">sair do sistema</a>
                 </li>
             </ul>
         </nav>

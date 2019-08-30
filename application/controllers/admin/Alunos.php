@@ -11,16 +11,6 @@ class Alunos extends CI_Controller {
 			redirect('admin');
 		}
 	}
-
-	function logout()
-	{
-		$data = $this->session->all_userdata();
-		foreach($data as $row => $rows_value)
-		{
-			$this->session->unset_userdata($row);
-		}
-		redirect('admin');
-	}
 	
 	public function index()
 	{

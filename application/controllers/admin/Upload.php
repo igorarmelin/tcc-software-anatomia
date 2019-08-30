@@ -13,16 +13,6 @@ class Upload extends CI_Controller {
         $this->load->helper(array('form', 'url')); 
     }
 
-    function logout()
-	{
-		$data = $this->session->all_userdata();
-		foreach($data as $row => $rows_value)
-		{
-			$this->session->unset_userdata($row);
-		}
-		redirect('admin');
-	}
-
     public function index()
     { 
         $this->load->model('admin/tbdcategoria');
