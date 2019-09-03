@@ -13,15 +13,19 @@
                 </form>
 
                 <div class="container-galeria row d-flex justify-content-center">
+                    
                     <?php foreach ($listagem as $foto) : ?>
-                        <div class="card mx-3 my-3" style="width: 18rem;">
-                            <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>" alt="<?= $foto['tituloImagem']?>">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $foto['tituloImagem']?></h5>
-                                <p class="card-text"><?= $foto['dscImagem']?></p>
-                                <a href="#" class="btn btn-primary">icone aqui</a>
+                        <form action="<?= base_url('index.php/admin/marcacao/insereMarcacoes/') ?>" target="_blank" method="POST" >
+                            <div class="card mx-3 my-3" style="width: 18rem;">
+                                <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>" alt="<?= $foto['tituloImagem']?>">
+                                <div class="card-body">
+                                    <input type="hidden" name="src" value="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>">
+                                    <h5 class="card-title"><?= $foto['tituloImagem']?></h5>
+                                    <p class="card-text"><?= $foto['dscImagem']?></p>
+                                    <input type="submit" class="btn btn-primary btn-lg float-right mt-3" value="ir">
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     <?php endforeach ?>
                 </div>
             </section>

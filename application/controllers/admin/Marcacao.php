@@ -33,5 +33,12 @@ class Marcacao extends CI_Controller {
 		$this->load->view('admin/resultado', $dados);
 		$this->load->view('layout/admin/footer');
 	}
+
+	function insereMarcacoes()
+	{
+		$dados['img'] = $this->input->post('src');
+
+		$this->load->view('admin/inserir_marcacoes', $dados);
+	}
 	
 }

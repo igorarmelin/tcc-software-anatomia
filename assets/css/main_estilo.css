@@ -1,3 +1,11 @@
 .container-galeria{
     margin-top: 100px;
 }
+
+.area-imagem{
+    background-color: red;
+    position: relative;
+    width: 720px;
+    height: 720px;
+    margin: 40px 40px;
+}
