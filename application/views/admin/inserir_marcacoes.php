@@ -17,7 +17,11 @@
   <body>
     
     <div class="area-imagem">
-        <img src="<?= $img?>" alt="<?= $img?>" width="720" height="720">
+      <img src="<?= $img?>" alt="<?= $img?>" class="img-fluid">
+    </div>
+    <div class="area-opcoes">
+      <button type="button" id="marcar" class="btn btn-success" onclick="marcar()">Inserir Marcação</button>
+      <button type="button" id="desmarcar" class="btn btn-danger" onclick="desmarcar()">Desfazer Marcação</button>
     </div>
     
     <!-- JS -->
@@ -25,5 +29,6 @@
     <script src="<?php echo base_url('assets/js/popper.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/sidebar_function.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/marcacao.js') ?>"></script>
     </body>
 </html>

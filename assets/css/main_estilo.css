@@ -3,9 +3,18 @@
 }
 
 .area-imagem{
-    background-color: red;
     position: relative;
-    width: 720px;
+    width: 1080px;
     height: 720px;
     margin: 40px 40px;
+}
+
+.pixel{
+    position:absolute;
+    background-color:black;
+    width: 3px; height: 3px;
+}
+
+.area-opcoes{
+    margin-left: 20%;
 }
