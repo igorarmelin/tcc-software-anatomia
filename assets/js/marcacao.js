@@ -5,7 +5,12 @@ function marcar(){
 function evento(){
    var pos = handler(event);
    var pixel = "<div class=\"pixel\" style=\"top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;\"></div>";
-   this.innerHTML = this.innerHTML + pixel;
+   var input = `
+   <form>
+    <input type="text">
+   </form>
+   `
+   this.innerHTML = this.innerHTML + pixel + input;
    this.removeEventListener('click', evento); // remove o event listener
 }
 
