@@ -2,16 +2,13 @@ function marcar(){
     document.querySelector(".area-imagem").addEventListener("click", evento);
 }
 
+var count = 0;
 function evento(){
-   var pos = handler(event);
-   var pixel = "<div class=\"pixel\" style=\"top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;\"></div>";
-   var input = `
-   <form>
-    <input type="text">
-   </form>
-   `
-   this.innerHTML = this.innerHTML + pixel + input;
-   this.removeEventListener('click', evento); // remove o event listener
+    count++;
+    var pos = handler(event);
+    var pixel = "<div class=\"pixel\" style=\"top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;\">" + count + "</div>";
+    this.innerHTML = this.innerHTML + pixel;
+    this.removeEventListener('click', evento); // remove o event listener
 }
 
 function handler(e) {
