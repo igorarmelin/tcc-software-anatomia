@@ -3,10 +3,13 @@ function marcar(){
 }
 
 var count = 0;
+var marc = 0;
 function evento(){
     count++;
+    marc++;
     var pos = handler(event);
-    var pixel = "<div class=\"pixel\" style=\"top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;\">" + count + "</div>";
+    var pixel = "<div class=\"pixel\" id=\"marc"+marc+"\" name=\"marc"+marc+"\" style=\"top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;\">" + count + "</div>";
+
     this.innerHTML = this.innerHTML + pixel;
     this.removeEventListener('click', evento); // remove o event listener
 }

@@ -4,8 +4,6 @@
 
 .area-imagem{
     position: relative;
-    width: 1080px;
-    height: 720px;
     margin: 40px 40px;
 }
 
@@ -17,5 +15,5 @@
 }
 
 .area-opcoes{
-    margin-left: 20%;
+    margin-left: 5%;
 }

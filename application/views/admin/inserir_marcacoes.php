@@ -23,6 +23,8 @@
       <button type="button" id="marcar" class="btn btn-success" onclick="marcar()">Inserir Marcação</button>
       <button type="button" id="desmarcar" class="btn btn-danger" onclick="desmarcar()">Desfazer Marcação</button>
     </div>
+
+    
     
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
