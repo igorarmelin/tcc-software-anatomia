@@ -41,7 +41,3 @@ function handler(e) {
 
    return {x: pageX, y: pageY};
 }
-
-function desmarcar(){
-    
-}
