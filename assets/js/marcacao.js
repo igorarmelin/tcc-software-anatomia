@@ -5,13 +5,26 @@ function marcar(){
 var count = 0;
 var marc = 0;
 function evento(){
-    count++;
-    marc++;
-    var pos = handler(event);
-    var pixel = "<div class=\"pixel\" id=\"marc"+marc+"\" name=\"marc"+marc+"\" style=\"top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;\">" + count + "</div>";
+   count++;
+   marc++;
+   var pos = handler(event);
+   var pixel = document.createElement("div");
+   pixel.className = "pixel";
+   pixel.id = "marc"+marc;
+   pixel.style = "top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;";
+   pixel.textContent = count;
 
-    this.innerHTML = this.innerHTML + pixel;
-    this.removeEventListener('click', evento); // remove o event listener
+   this.appendChild(pixel);
+   
+   var input = document.createElement("input");
+   var textArea = document.createElement("textarea");
+   input.name = "marcas[]";
+   textArea.name = "descricao[]";
+   document.getElementById("marc"+marc).appendChild(input);
+   document.getElementById("marc"+marc).appendChild(textArea);
+   input.focus();
+   
+   this.removeEventListener('click', evento); // remove o event listener
 }
 
 function handler(e) {
