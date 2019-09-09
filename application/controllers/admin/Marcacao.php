@@ -40,5 +40,10 @@ class Marcacao extends CI_Controller {
 
 		$this->load->view('admin/inserir_marcacoes', $dados);
 	}
+
+	function registraMarcacoes()
+	{
+		
+	}
 	
 }

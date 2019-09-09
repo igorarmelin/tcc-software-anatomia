@@ -15,10 +15,16 @@
     
   </head>
   <body>
-    
+  <?php
+    echo form_open('admin/marcacao/registraMarcacoes');
+  ?>
     <div class="area-imagem">
       <img src="<?= $img?>" alt="<?= $img?>" class="img-fluid">
     </div>
+    <input style="display:none;" type="submit" class="btn btn-primary btn-lg my-5 mx-5" value="Registrar">
+  <?php 
+    echo form_close(); 
+  ?>
     <div class="area-opcoes">
       <button type="button" id="marcar" class="btn btn-success" onclick="marcar()">Inserir Marcação</button>
     </div>

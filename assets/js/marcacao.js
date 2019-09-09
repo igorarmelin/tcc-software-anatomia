@@ -9,7 +9,7 @@ function evento(){
    marc++;
    var pos = handler(event);
    var pixel = document.createElement("div");
-   pixel.className = "pixel";
+   pixel.className = "pixel form-group";
    pixel.id = "marc"+marc;
    pixel.style = "top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;";
    pixel.textContent = count;
@@ -29,6 +29,9 @@ function evento(){
    input_hidden.type = "hidden";
    input_hidden.value = (pos.x - this.offsetLeft)+"x"+ (pos.y - this.offsetTop);
    document.getElementById("marc"+marc).appendChild(input_hidden);
+
+    var botao = document.querySelector("form input[type='submit']");
+    botao.style.display = input ? "inline" : "none";
    
    this.removeEventListener('click', evento); // remove o event listener
 }
