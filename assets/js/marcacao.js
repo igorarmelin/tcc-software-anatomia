@@ -19,10 +19,16 @@ function evento(){
    var input = document.createElement("input");
    var textArea = document.createElement("textarea");
    input.name = "marcas[]";
-   textArea.name = "descricao[]";
+   textArea.name = "descricoes[]";
    document.getElementById("marc"+marc).appendChild(input);
    document.getElementById("marc"+marc).appendChild(textArea);
    input.focus();
+   
+   var input_hidden = document.createElement("input");
+   input_hidden.name = "coords[]";
+   input_hidden.type = "hidden";
+   input_hidden.value = (pos.x - this.offsetLeft)+"x"+ (pos.y - this.offsetTop);
+   document.getElementById("marc"+marc).appendChild(input_hidden);
    
    this.removeEventListener('click', evento); // remove o event listener
 }
