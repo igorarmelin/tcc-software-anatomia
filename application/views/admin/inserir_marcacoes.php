@@ -20,6 +20,7 @@
   ?>
     <div class="area-imagem">
       <img src="<?= $img?>" alt="<?= $img?>" class="img-fluid">
+      <input style="display:none;" name="idImg" value="<?= $id?>">
     </div>
     <input style="display:none;" type="submit" class="btn btn-primary btn-lg my-5 mx-5" value="Registrar">
   <?php 

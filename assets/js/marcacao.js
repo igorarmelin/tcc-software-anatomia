@@ -24,11 +24,17 @@ function evento(){
    document.getElementById("marc"+marc).appendChild(textArea);
    input.focus();
    
-   var input_hidden = document.createElement("input");
-   input_hidden.name = "coords[]";
-   input_hidden.type = "hidden";
-   input_hidden.value = (pos.x - this.offsetLeft)+"x"+ (pos.y - this.offsetTop);
-   document.getElementById("marc"+marc).appendChild(input_hidden);
+   var input_hidden_x = document.createElement("input");
+   input_hidden_x.name = "coordsX[]";
+   input_hidden_x.type = "hidden";
+   input_hidden_x.value = (pos.x - this.offsetLeft);
+   document.getElementById("marc"+marc).appendChild(input_hidden_x);
+
+   var input_hidden_y = document.createElement("input");
+   input_hidden_y.name = "coordsY[]";
+   input_hidden_y.type = "hidden";
+   input_hidden_y.value = (pos.y - this.offsetTop);
+   document.getElementById("marc"+marc).appendChild(input_hidden_y);
 
     var botao = document.querySelector("form input[type='submit']");
     botao.style.display = input ? "inline" : "none";

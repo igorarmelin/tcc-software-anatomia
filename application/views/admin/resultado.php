@@ -20,6 +20,7 @@
                                 <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>" alt="<?= $foto['tituloImagem']?>">
                                 <div class="card-body">
                                     <input type="hidden" name="src" value="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>">
+                                    <input type="hidden" name="id" value="<?= $foto['idImagem']?>">
                                     <h5 class="card-title"><?= $foto['tituloImagem']?></h5>
                                     <p class="card-text"><?= $foto['dscImagem']?></p>
                                     <input type="submit" class="btn btn-primary btn-lg float-right mt-3" value="ir">
