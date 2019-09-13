@@ -5,26 +5,13 @@ class Tbdmarcacao extends CI_Model {
 	
     function registraDadosImg()
     {
-        $marcacao = $this->input->post('marcas[]');
-        $descMarcacao = $this->input->post('descricoes[]');
-        $coordX = $this->input->post('coordsX[]');
-        $coordY = $this->input->post('coordsY[]');
-        $idImg = $this->input->post('idImg');
-        
+        $data['nomeMarcacao'] = $this->input->post('marcacao');
+        $data['dscMarcacao'] = $this->input->post('descricao');
+        $data['coordX'] = $this->input->post('coordX');
+        $data['coordY'] = $this->input->post('coordY');
+        $data['idImagem'] = $this->input->post('idImg');
 
-        foreach(array($marcacao) AS $marcacao ) {
-            foreach(array($descMarcacao) AS $descMarcacao ){
-                foreach(array($coordX) AS $coordX ){
-                    foreach(array($coordY) AS $coordY ){
-                        for($i = 0; $i < count($marcacao); $i++){
-                            $this->db->query(
-                                'INSERT INTO tbdmarcacao (nomeMarcacao, dscMarcacao, coordX, coordY, idImagem) VALUES (?, ?, ?, ?, ?)',
-                                array($marcacao, $descMarcacao, $coordX, $coordY, $idImg)
-                            );
-                        }
-                    }
-                }
-            }
-        }
+        $this->db->insert('tbdmarcacao', $data);
+    
     }
 }

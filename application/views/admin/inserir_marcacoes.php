@@ -19,7 +19,7 @@
     echo form_open('admin/marcacao/registraMarcacoes');
   ?>
     <div class="area-imagem">
-      <img src="<?= $img?>" alt="<?= $img?>" class="img-fluid">
+      <img src="<?= $img?>" alt="<?= $img?>">
       <input style="display:none;" name="idImg" value="<?= $id?>">
     </div>
     <input style="display:none;" type="submit" class="btn btn-primary btn-lg my-5 mx-5" value="Registrar">
@@ -27,11 +27,11 @@
     echo form_close(); 
   ?>
     <div class="area-opcoes">
-      <button type="button" id="marcar" class="btn btn-success" onclick="marcar()">Inserir Marcação</button>
+      <button style="display:inline"; type="button" id="marcar" class="btn btn-success" onclick="marcar()">Inserir Marcação</button>
     </div>
 
     
-    
+
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/popper.js') ?>"></script>

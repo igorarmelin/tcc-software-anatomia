@@ -36,10 +36,18 @@ class Marcacao extends CI_Controller {
 
 	function insereMarcacoes()
 	{
-		$dados['img'] = $this->input->post('src');
-		$dados['id'] = $this->input->post('id');
+		$acao = $this->input->post('acao');
 
-		$this->load->view('admin/inserir_marcacoes', $dados);
+		if($acao == 'marcar') {
+			$dados['img'] = $this->input->post('src');
+			$dados['id'] = $this->input->post('id');
+
+			$this->load->view('admin/inserir_marcacoes', $dados);
+		}
+		if($acao == 'ver') {
+			// codigo para visualizar as marcações
+		}
+		
 	}
 
 	function registraMarcacoes()
@@ -48,8 +56,8 @@ class Marcacao extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		/* Validation rule */
-		$this->form_validation->set_rules('marcas[]', 'Text', 'required');
-		$this->form_validation->set_rules('descricoes[]', 'Text', 'required');
+		$this->form_validation->set_rules('marcacao', 'Text', 'required');
+		$this->form_validation->set_rules('descricao', 'Text', 'required');
 		if ($this->form_validation->run() == FALSE)
         { 
             redirect('admin/marcacao/buscaFotos');

@@ -1,37 +1,37 @@
 function marcar(){
     document.querySelector(".area-imagem").addEventListener("click", evento);
+
+    document.getElementById("marcar").style.display = "none";
 }
 
-var count = 0;
 var marc = 0;
 function evento(){
-   count++;
    marc++;
    var pos = handler(event);
    var pixel = document.createElement("div");
    pixel.className = "pixel form-group";
    pixel.id = "marc"+marc;
    pixel.style = "top: " + (pos.y - this.offsetTop) + "px; left: " + (pos.x - this.offsetLeft) + "px;";
-   pixel.textContent = count;
+   pixel.textContent = 'Marcação:';
 
    this.appendChild(pixel);
    
    var input = document.createElement("input");
    var textArea = document.createElement("textarea");
-   input.name = "marcas[]";
-   textArea.name = "descricoes[]";
+   input.name = "marcacao";
+   textArea.name = "descricao";
    document.getElementById("marc"+marc).appendChild(input);
    document.getElementById("marc"+marc).appendChild(textArea);
    input.focus();
    
    var input_hidden_x = document.createElement("input");
-   input_hidden_x.name = "coordsX[]";
+   input_hidden_x.name = "coordX";
    input_hidden_x.type = "hidden";
    input_hidden_x.value = (pos.x - this.offsetLeft);
    document.getElementById("marc"+marc).appendChild(input_hidden_x);
 
    var input_hidden_y = document.createElement("input");
-   input_hidden_y.name = "coordsY[]";
+   input_hidden_y.name = "coordY";
    input_hidden_y.type = "hidden";
    input_hidden_y.value = (pos.y - this.offsetTop);
    document.getElementById("marc"+marc).appendChild(input_hidden_y);

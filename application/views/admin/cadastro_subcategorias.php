@@ -10,6 +10,7 @@
                         <div class="form-group">
                             <label for="categoria">Selecione a categoria referente a subcategoria:</label>
                             <select name="categorias" class="form-control">
+                                <option value=""></option>
                                 <?php foreach ($listarCategorias->result() as $row) : ?>
                                 <option value="<?php echo $row->idCategoria; ?>"><?php echo $row->dscCategoria; ?></option>
                                 <?php endforeach ?>
