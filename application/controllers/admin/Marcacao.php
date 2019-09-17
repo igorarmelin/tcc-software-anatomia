@@ -74,7 +74,7 @@ class Marcacao extends CI_Controller {
 			$this->load->model('admin/tbdmarcacao');
 			$this->tbdmarcacao->registraDadosImg();
 
-			redirect('admin/marcacao/buscaFotos');
+			echo "<script>window.close();</script>";
         } 
 	}
 	
