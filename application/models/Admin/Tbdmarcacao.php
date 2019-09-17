@@ -14,4 +14,16 @@ class Tbdmarcacao extends CI_Model {
         $this->db->insert('tbdmarcacao', $data);
     
     }
+
+    function listarMarcacoes()
+    {
+        $id = $this->input->post('id');
+
+        $query = $this->db->select('*')
+                            ->from('tbdmarcacao')
+                            ->where('idImagem', $id)
+                            ->get();
+
+        return $query;
+    }
 }

@@ -14,6 +14,13 @@
     color: #FFF;
 }
 
+.ponto{
+    position: absolute;
+    background-color: blue;
+    border-radius: 15px;
+    width: 12px; height: 12px;
+}
+
 .area-opcoes{
     margin-left: 5%;
 }

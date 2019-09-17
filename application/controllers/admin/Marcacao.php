@@ -37,15 +37,22 @@ class Marcacao extends CI_Controller {
 	function insereMarcacoes()
 	{
 		$acao = $this->input->post('acao');
+		$dados['img'] = $this->input->post('src');
+		$dados['id'] = $this->input->post('id');
 
 		if($acao == 'marcar') {
-			$dados['img'] = $this->input->post('src');
-			$dados['id'] = $this->input->post('id');
-
+			// codigo para realizar as marcações
 			$this->load->view('admin/inserir_marcacoes', $dados);
 		}
-		if($acao == 'ver') {
+		else if($acao == 'ver') {
 			// codigo para visualizar as marcações
+			$this->load->model('admin/tbdmarcacao');
+			$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
+
+			$this->load->view('admin/visualizar_marcacoes', $dados);
+		}
+		else{
+			// codigo para excluir foto
 		}
 		
 	}
