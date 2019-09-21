@@ -27,7 +27,7 @@
     echo form_close(); 
   ?>
     <div class="area-opcoes">
-      <button style="display:inline"; type="button" id="marcar" class="btn btn-success" onclick="marcar()">Inserir Marcação</button>
+      <button style="display:inline"; type="button" id="marcar" class="btn btn-success my-5 mx-5" onclick="marcar()">Inserir Marcação</button>
     </div>
 
     
