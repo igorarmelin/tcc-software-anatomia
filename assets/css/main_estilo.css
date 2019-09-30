@@ -16,7 +16,7 @@
 
 .ponto{
     position: absolute;
-    background-color: blue;
+    background-color: yellow;
     border-radius: 15px;
     width: 12px; height: 12px;
 }
