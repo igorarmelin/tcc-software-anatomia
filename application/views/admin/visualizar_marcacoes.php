@@ -19,31 +19,10 @@
     <div class="area-imagem">
         <img src="<?= $img?>" alt="<?= $img?>">
         <input style="display:none;" name="idImg" value="<?= $id?>">
-            <?php foreach ($marcacoes->result() as $marcacao) : ?>
-                <div data-toggle="modal" data-target="#modalMarcacao<?php echo $marcacao->idMarcacao?>" class="ponto" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalMarcacao<?php echo $marcacao->idMarcacao?>" tabindex="-1" role="dialog" aria-labelledby="MarcacaoLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="MarcacaoLabel"><?php echo $marcacao->nomeMarcacao?></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <?php echo $marcacao->dscMarcacao?>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+        <?php foreach ($marcacoes->result() as $marcacao) : ?>
+                <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?php echo $marcacao->nomeMarcacao?></b><br><?php echo $marcacao->dscMarcacao?>" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">
                 </div>
-            <?php endforeach ?>
+        <?php endforeach ?>
     </div>
 
     
@@ -54,5 +33,10 @@
     <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/sidebar_function.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/marcacao.js') ?>"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     </body>
 </html>
