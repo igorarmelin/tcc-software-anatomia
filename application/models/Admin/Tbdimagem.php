@@ -42,4 +42,30 @@ class Tbdimagem extends CI_Model {
         
         return $query->result_array();
     }
+
+    function buscarSubcategorias($busca)
+    {
+        if(empty($busca))
+            return array();
+        
+        $busca = $this->input->post('subcategorias');
+
+        $query = $this->db->select('*')
+                            ->from('tbdimagem')
+                            ->join('imagem_subcategoria', 'tbdimagem.idImagem = imagem_subcategoria.idImagem', 'inner')
+                            ->where('idSubcategoria', $busca)
+                            ->get();
+        
+        return $query->result_array();
+    }
+
+    function buscarTodas()
+    {
+        
+        $query = $this->db->select('*')
+                            ->from('tbdimagem')
+                            ->get();
+        
+        return $query->result_array();
+    }
 }
