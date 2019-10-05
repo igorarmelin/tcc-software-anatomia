@@ -14,8 +14,18 @@ class Questionario extends CI_Controller {
 
     public function index()
 	{	
+		$this->load->model('admin/tbdcategoria');
+		$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		$this->load->model('admin/tbdsubcategoria');
+		$dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
+
 		$this->load->view('layout/sidebar');
-		$this->load->view('questionario');
+		$this->load->view('questionario', $dados);
 		$this->load->view('layout/footer');
+	}
+
+	public function questionario()
+	{
+		
 	}
 }

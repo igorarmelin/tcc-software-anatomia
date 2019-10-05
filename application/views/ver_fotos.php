@@ -7,7 +7,7 @@
                     <div class="form-group">
                         <label for="categorias">Selecione a categoria referente a foto desejada:</label>
                         <select name="categorias" class="form-control">
-                            <option value="vazio"></option>
+                            <option value="vazio">Todas</option>
                             <?php foreach ($listarCategorias->result() as $row) : ?>
                             <option value="<?php echo $row->idCategoria; ?>"><?php echo $row->dscCategoria; ?></option>
                             <?php endforeach ?>
@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="subcategorias">Selecione a subcategoria referente a foto desejada:</label>
                         <select name="subcategorias" class="form-control">
-                            <option value="vazio"></option>
+                            <option value="vazio">Todas</option>
                             <?php foreach ($listarSubcategorias->result() as $row) : ?>
                             <option value="<?php echo $row->idSubcategoria; ?>"><?php echo $row->dscSubcategoria; ?></option>
                             <?php endforeach ?>
