@@ -2,7 +2,7 @@
                 <h1 class="text-center">Questionário</h1>
 
                 <?php
-                    echo form_open_multipart('fotos/questionario');
+                    echo form_open_multipart('questionario/realiza_questionario');
                 ?>
                     <div class="form-group">
                         <label for="categorias">Selecione a categoria referente a foto desejada:</label>

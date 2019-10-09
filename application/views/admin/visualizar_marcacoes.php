@@ -17,7 +17,7 @@
   <body>
 
     <div class="area-imagem">
-        <img src="<?= $img?>" alt="<?= $img?>">
+        <img src="<?= $img?>" width="720" height="auto">
         <input style="display:none;" name="idImg" value="<?= $id?>">
         <?php foreach ($marcacoes->result() as $marcacao) : ?>
                 <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?php echo $marcacao->nomeMarcacao?></b><br><?php echo $marcacao->dscMarcacao?>" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">

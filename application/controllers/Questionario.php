@@ -24,7 +24,7 @@ class Questionario extends CI_Controller {
 		$this->load->view('layout/footer');
 	}
 
-	public function questionario()
+	public function realiza_questionario()
 	{
 		
 	}

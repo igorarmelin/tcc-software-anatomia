@@ -15,20 +15,13 @@
     
   </head>
   <body>
-  <?php
-    echo form_open('admin/marcacao/registraMarcacoes');
-  ?>
-    <div class="area-imagem">
-      <img src="<?= $img?>" width="720" height="auto">
-      <input style="display:none;" name="idImg" value="<?= $id?>">
-    </div>
-    <input style="display:none;" type="submit" class="btn btn-primary btn-lg my-5 mx-5" value="Registrar">
-  <?php 
-    echo form_close(); 
-  ?>
-    <div class="area-opcoes">
-      <button style="display:inline"; type="button" id="marcar" class="btn btn-success my-5 mx-5" onclick="marcar()">Inserir Marcação</button>
-    </div>
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <a class="navbar-brand" href="#">
+            <img src="<?php echo base_url('assets/img/logo.png') ?>" width="45" height="32" class="d-inline-block align-top" alt="">
+            Questionário
+        </a>
+    </nav>
 
     
 
@@ -37,6 +30,5 @@
     <script src="<?php echo base_url('assets/js/popper.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/sidebar_function.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/marcacao.js') ?>"></script>
     </body>
 </html>
