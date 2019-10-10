@@ -27,6 +27,6 @@ class Questionario extends CI_Controller {
 	public function realiza_questionario()
 	{
 		$this->load->model('tbdquestionario');
-		$fotos[] = $this->tbdquestionario->buscaIdImagens();
+		$fotos[] = $this->tbdquestionario->buscaImagens();
 	}
 }
