@@ -16,6 +16,8 @@
   </head>
   <body>
 
+  <div class="container">
+    <h1 class="text-center"><?= $titulo?></h1>
     <div class="area-imagem">
         <img src="<?= $img?>" width="720" height="auto">
         <input style="display:none;" name="idImg" value="<?= $id?>">
@@ -24,6 +26,9 @@
                 </div>
         <?php endforeach ?>
     </div>
+    <p><?= $descricao?></p>
+  </div>
+    
 
     
 

@@ -4,7 +4,7 @@
                 <form action="<?= base_url('index.php/admin/marcacao/buscafotos/') ?>" method="POST" >
                     <label for="categoria">Selecione a categoria referente a foto desejada:</label>
                     <select name="categorias" class="form-control">
-                        <option value=""></option>
+                        <option value="todas">TODAS AS FOTOS</option>
                         <?php foreach ($listarCategorias->result() as $row) : ?>
                         <option value="<?php echo $row->idCategoria; ?>"><?php echo $row->dscCategoria; ?></option>
                         <?php endforeach ?>

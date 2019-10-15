@@ -15,22 +15,29 @@
     
   </head>
   <body>
-  <?php
-    echo form_open('admin/marcacao/registraMarcacoes');
-  ?>
-    <div class="area-imagem">
-      <img src="<?= $img?>" width="720" height="auto">
-      <input style="display:none;" name="idImg" value="<?= $id?>">
+    <div class="container">
+      <?php
+      echo form_open('admin/marcacao/registraMarcacoes');
+      ?>
+        <h1 class="text-center"><?= $titulo?></h1>
+        <div class="area-imagem">
+          <img src="<?= $img?>" width="720" height="auto">
+          <input style="display:none;" name="idImg" value="<?= $id?>">
+          <?php foreach ($marcacoes->result() as $marcacao) : ?>
+            <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?php echo $marcacao->nomeMarcacao?></b><br><?php echo $marcacao->dscMarcacao?>" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">
+            </div>
+          <?php endforeach ?>
+        </div>
+        <input style="display:none;" type="submit" class="btn btn-primary btn-lg my-5 mx-5" value="Registrar">
+      <?php 
+        echo form_close(); 
+      ?>
+      <div class="area-opcoes">
+        <button style="display:inline"; type="button" id="marcar" class="btn btn-success my-5 mx-5" onclick="marcar()">Inserir Marcação</button>
+        <button style="display:inline"; type="button" id="remover" class="btn btn-danger my-5 mx-5" onclick="remover()">Remover Marcação</button>
+      </div>
     </div>
-    <input style="display:none;" type="submit" class="btn btn-primary btn-lg my-5 mx-5" value="Registrar">
-  <?php 
-    echo form_close(); 
-  ?>
-    <div class="area-opcoes">
-      <button style="display:inline"; type="button" id="marcar" class="btn btn-success my-5 mx-5" onclick="marcar()">Inserir Marcação</button>
-    </div>
-
-    
+  
 
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
@@ -38,5 +45,10 @@
     <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/sidebar_function.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/marcacao.js') ?>"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     </body>
 </html>

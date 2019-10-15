@@ -4,7 +4,7 @@
                 <form action="<?= base_url('index.php/admin/marcacao/buscafotos/') ?>" method="POST" >
                     <label for="categoria">Selecione a categoria referente a foto desejada:</label>
                     <select name="categorias" class="form-control">
-                        <option value=""></option>
+                        <option value="todas">TODAS AS FOTOS</option>
                         <?php foreach ($listarCategorias->result() as $row) : ?>
                         <option value="<?php echo $row->idCategoria; ?>"><?php echo $row->dscCategoria; ?></option>
                         <?php endforeach ?>
@@ -22,10 +22,12 @@
                                 <div class="card-body">
                                     <input type="hidden" name="src" value="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>">
                                     <input type="hidden" name="id" value="<?= $foto['idImagem']?>">
+                                    <input type="hidden" name="titulo" value="<?= $foto['tituloImagem']?>">
+                                    <input type="hidden" name="descricao" value="<?= $foto['dscImagem']?>">
                                     <h5 class="card-title"><?= $foto['tituloImagem']?></h5>
-                                    <p class="card-text"><?= $foto['dscImagem']?></p>
                                     <input type="submit" name="acao" value="marcar" class="btn btn-primary btn float-left mt-3 mr-1">
-                                    <input type="submit" name="acao" value="ver" class="btn btn-success btn float-left mt-3 mr-1">                                    
+                                    <input type="submit" name="acao" value="ver" class="btn btn-success btn float-left mt-3 mr-1">   
+                                    <input type="submit" name="acao" value="X" class="btn btn-danger btn float-right mt-3 mr-1">                                   
                                 </div>
                             </div>
                         </form>

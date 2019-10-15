@@ -24,14 +24,34 @@ class Marcacao extends CI_Controller {
 
 	function buscaFotos()
 	{
-		$this->load->model('admin/tbdcategoria');
-        $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
-		$this->load->model('admin/tbdimagem');
-		$dados['listagem'] = $this->tbdimagem->buscar($_POST);
+		$fotos = $_POST['categorias'];
 
-		$this->load->view('layout/admin/sidebar');
-		$this->load->view('admin/resultado', $dados);
-		$this->load->view('layout/admin/footer');
+		if($fotos == "todas")
+		{
+			$this->load->model('admin/tbdcategoria');
+			$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+			
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscarTodas();
+
+			$this->load->view('layout/admin/sidebar');
+			$this->load->view('admin/resultado', $dados);
+			$this->load->view('layout/admin/footer');
+		}
+		else
+		{
+			$this->load->model('admin/tbdcategoria');
+			$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+			
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscar($_POST);
+
+			$this->load->view('layout/admin/sidebar');
+			$this->load->view('admin/resultado', $dados);
+			$this->load->view('layout/admin/footer');
+		}
+
+		
 	}
 
 	function insereMarcacoes()
@@ -39,9 +59,14 @@ class Marcacao extends CI_Controller {
 		$acao = $this->input->post('acao');
 		$dados['img'] = $this->input->post('src');
 		$dados['id'] = $this->input->post('id');
+		$dados['titulo'] = $this->input->post('titulo');
+		$dados['descricao'] = $this->input->post('descricao');
 
 		if($acao == 'marcar') {
 			// codigo para realizar as marcações
+			$this->load->model('admin/tbdmarcacao');
+			$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
+
 			$this->load->view('admin/inserir_marcacoes', $dados);
 		}
 		else if($acao == 'ver') {
@@ -64,7 +89,6 @@ class Marcacao extends CI_Controller {
 		
 		/* Validation rule */
 		$this->form_validation->set_rules('marcacao', 'Text', 'required');
-		$this->form_validation->set_rules('descricao', 'Text', 'required');
 		if ($this->form_validation->run() == FALSE)
         { 
             redirect('admin/marcacao/buscaFotos');

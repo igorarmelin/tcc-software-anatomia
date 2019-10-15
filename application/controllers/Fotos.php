@@ -35,8 +35,9 @@ class Fotos extends CI_Controller {
 
 		$categoria = $_POST['categorias'];
 		$subcategoria = $_POST['subcategorias'];
+		
 
-		if($categoria != "vazio")
+		if(($categoria != "vazio" && $categoria != "todas") && $subcategoria == "vazio")
 		{
 			$this->load->model('admin/tbdimagem');
 			$dados['listagem'] = $this->tbdimagem->buscar($_POST);
@@ -44,10 +45,64 @@ class Fotos extends CI_Controller {
 			$this->load->view('resultado', $dados);
 			$this->load->view('layout/footer');
 		}
-		else if($subcategoria != "vazio")
+		else if(($subcategoria != "vazio" && $subcategoria != "todas") && $categoria == "vazio")
 		{
 			$this->load->model('admin/tbdimagem');
 			$dados['listagem'] = $this->tbdimagem->buscarSubcategorias($_POST);
+			$this->load->view('layout/sidebar');
+			$this->load->view('resultado', $dados);
+			$this->load->view('layout/footer');
+		}
+		else if($categoria == "vazio" && $subcategoria == "todas")
+		{
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscaVazio();
+
+			$this->load->view('layout/sidebar');
+			$this->load->view('resultado', $dados);
+			$this->load->view('layout/footer');
+		}
+		else if($categoria != "todas" && $subcategoria == "todas")
+		{
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscaVazio();
+
+			$this->load->view('layout/sidebar');
+			$this->load->view('resultado', $dados);
+			$this->load->view('layout/footer');
+		}
+		else if(($categoria == "vazio" && $subcategoria == "vazio") || (($categoria != "vazio" && $subcategoria != "vazio") && ($categoria != "todas" && $subcategoria != "todas")))
+		{
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscaVazio();
+
+			$this->load->view('layout/sidebar');
+			$this->load->view('resultado', $dados);
+			$this->load->view('layout/footer');
+		}
+		else if(($categoria == "todas" && $subcategoria != "todas") || ($categoria != "todas" && $categoria == "todas"))
+		{
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscaVazio();
+
+			$this->load->view('layout/sidebar');
+			$this->load->view('resultado', $dados);
+			$this->load->view('layout/footer');
+		}
+		else if($categoria == "todas" && $subcategoria != "todas")
+		{
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscaTodasCategorias();
+
+			$this->load->view('layout/sidebar');
+			$this->load->view('resultado', $dados);
+			$this->load->view('layout/footer');
+		}
+		else if($categoria != "todas" && $subcategoria == "todas")
+		{
+			$this->load->model('admin/tbdimagem');
+			$dados['listagem'] = $this->tbdimagem->buscaTodasSubcategorias();
+
 			$this->load->view('layout/sidebar');
 			$this->load->view('resultado', $dados);
 			$this->load->view('layout/footer');
@@ -68,6 +123,8 @@ class Fotos extends CI_Controller {
 	{
 		$dados['img'] = $this->input->post('src');
 		$dados['id'] = $this->input->post('id');
+		$dados['titulo'] = $this->input->post('titulo');
+		$dados['descricao'] = $this->input->post('descricao');
 
 		$this->load->model('admin/tbdmarcacao');
 		$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();

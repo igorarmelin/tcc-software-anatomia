@@ -68,4 +68,29 @@ class Tbdimagem extends CI_Model {
         
         return $query->result_array();
     }
+
+    function buscaVazio()
+    {
+        return array();
+    }
+
+    function buscaTodasCategorias()
+    {
+        $query = $this->db->select('*')
+                            ->from('tbdimagem')
+                            ->join('imagem_categoria', 'tbdimagem.idImagem = imagem_categoria.idImagem', 'inner')
+                            ->get();
+        
+        return $query->result_array();
+    }
+
+    function buscaTodasSubcategorias()
+    {
+        $query = $this->db->select('*')
+                            ->from('tbdimagem')
+                            ->join('imagem_subcategoria', 'tbdimagem.idImagem = imagem_subcategoria.idImagem', 'inner')
+                            ->get();
+        
+        return $query->result_array();
+    }
 }

@@ -16,16 +16,20 @@
   </head>
   <body>
 
-    <div class="area-imagem">
+    <div class="container">
+      <h1 class="text-center"><?= $titulo?></h1>
+      <div class="area-imagem">
         <img src="<?= $img?>" width="720" height="auto">
         <input style="display:none;" name="idImg" value="<?= $id?>">
         <?php foreach ($marcacoes->result() as $marcacao) : ?>
                 <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?php echo $marcacao->nomeMarcacao?></b><br><?php echo $marcacao->dscMarcacao?>" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">
                 </div>
         <?php endforeach ?>
+      </div>
+        <p><?= $descricao?></p>
+        
     </div>
-
-    
+        
 
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
