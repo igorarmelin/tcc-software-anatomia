@@ -17,7 +17,7 @@
   <body>
 
     <div class="container">
-      <h1 class="text-center"><?= $titulo?></h1>
+      <h1 class="text-center display-3 mt-3"><?= $titulo?></h1>
       <div class="area-imagem">
         <img src="<?= $img?>" width="720" height="auto">
         <input style="display:none;" name="idImg" value="<?= $id?>">
@@ -26,7 +26,11 @@
                 </div>
         <?php endforeach ?>
       </div>
-        <p><?= $descricao?></p>
+      <div class="card mb-3">
+        <div class="card-body">
+          <?= $descricao?>
+        </div>
+      </div>
         
     </div>
         

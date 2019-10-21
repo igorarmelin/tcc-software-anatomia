@@ -16,8 +16,11 @@ class Categorias extends CI_Controller {
     public function index()
     {
 
+        $this->load->model('admin/tbdcategoria');
+        $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+
         $this->load->view('layout/admin/sidebar');
-		$this->load->view('admin/cadastro_categorias');
+		$this->load->view('admin/cadastro_categorias', $dados);
 		$this->load->view('layout/admin/footer'); 
     }
 
@@ -30,21 +33,54 @@ class Categorias extends CI_Controller {
         /* Validation rule */
         $this->form_validation->set_rules('categoria', 'Text', 'required|callback_check_customer');	 
         
-        if ($this->form_validation->run() == FALSE)
+        if ($this->form_validation->run())
         { 
-            $this->load->view('layout/admin/sidebar');
-            $this->load->view('admin/cadastro_categorias'); 
-            $this->load->view('layout/admin/footer');
+            
+            $this->load->model('admin/tbdcategoria');
+            $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+
+            if($this->input->post("editar"))
+            {
+                $dados = array(
+                    "dscCategoria" => $this->input->post("categoria")
+                );
+                $this->tbdcategoria->atualizarCategoria($dados, $this->input->post("idCategoria"));
+                redirect('admin/categorias', 'refresh');
+            }
+            if($this->input->post("inserir"))
+            {
+                $this->tbdcategoria->cadastrarCategoria();
+                $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+                $dados["success"] = "Categoria cadastrada com sucesso!";
+                $this->load->view('layout/admin/sidebar');
+                $this->load->view('admin/cadastro_categorias', $dados); 
+                $this->load->view('layout/admin/footer');
+            }
         } 
         else
         { 
             $this->load->model('admin/tbdcategoria');
-            $this->tbdcategoria->cadastrarCategoria();
-            $success = "Categoria cadastrada com sucesso!";
+            $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+
             $this->load->view('layout/admin/sidebar');
-            $this->load->view('admin/cadastro_categorias', compact('success')); 
+            $this->load->view('admin/cadastro_categorias', $dados); 
             $this->load->view('layout/admin/footer');
+
+            
         } 
+    }
+
+    public function editarCategoria()
+    {
+        $id = $this->uri->segment(4);
+
+        $this->load->model('admin/tbdcategoria');
+        $dados["dadosCategoria"] = $this->tbdcategoria->dadosEditarCategoria($id);
+        $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+
+        $this->load->view('layout/admin/sidebar');
+        $this->load->view('admin/cadastro_categorias', $dados); 
+        $this->load->view('layout/admin/footer');
     }
 
     public function check_customer($categoria)

@@ -15,4 +15,17 @@ class Tbdcategoria extends CI_Model {
 
         return $query;
     }
+
+    function dadosEditarCategoria($id)
+    {
+        $this->db->where("idCategoria", $id);
+        $query = $this->db->get("tbdcategoria");
+        return $query;
+    }
+
+    function atualizarCategoria($dados, $id)
+    {
+        $this->db->where("idCategoria", $id);
+        $this->db->update("tbdcategoria", $dados);
+    }
 }

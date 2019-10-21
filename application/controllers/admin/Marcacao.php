@@ -69,15 +69,12 @@ class Marcacao extends CI_Controller {
 
 			$this->load->view('admin/inserir_marcacoes', $dados);
 		}
-		else if($acao == 'ver') {
+		else{
 			// codigo para visualizar as marcações
 			$this->load->model('admin/tbdmarcacao');
 			$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
 			$this->load->view('admin/visualizar_marcacoes', $dados);
-		}
-		else{
-			// codigo para excluir foto
 		}
 		
 	}
@@ -100,6 +97,16 @@ class Marcacao extends CI_Controller {
 
 			echo "<script>window.close();</script>";
         } 
+	}
+
+	public function deletarImagem()
+	{
+		$id = $this->uri->segment(4);
+
+		$this->load->model('admin/tbdimagem');
+		$this->tbdimagem->deleteImage($id);
+
+		redirect('admin/marcacao', 'refresh');
 	}
 	
 }

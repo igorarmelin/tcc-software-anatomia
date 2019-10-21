@@ -93,4 +93,10 @@ class Tbdimagem extends CI_Model {
         
         return $query->result_array();
     }
+
+    function deleteImage($id)
+    {
+        $this->db->delete('tbdimagem', array('idImagem' => $id));
+        return;
+    }
 }

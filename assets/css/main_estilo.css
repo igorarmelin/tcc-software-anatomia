@@ -30,3 +30,11 @@
 .area-opcoes{
     text-align: center;
 }
+
+.color-edit{
+    color: rgb(6, 108, 243);
+}
+
+.color-delete{
+    color: crimson;
+}

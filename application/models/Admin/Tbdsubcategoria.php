@@ -16,4 +16,17 @@ class Tbdsubcategoria extends CI_Model {
 
         return $query;
     }
+
+    function dadosEditarSubcategoria($id)
+    {
+        $this->db->where("idSubcategoria", $id);
+        $query = $this->db->get("tbdsubcategoria");
+        return $query;
+    }
+
+    function atualizarSubcategoria($dados, $id)
+    {
+        $this->db->where("idSubcategoria", $id);
+        $this->db->update("tbdsubcategoria", $dados);
+    }
 }

@@ -7,13 +7,55 @@
                         if (isset($success))
                         echo '<p>'.$success.'</p>';
                     ?>
+
+                        <?php
+                            if(isset($dadosCategoria))
+                            {
+                                foreach($dadosCategoria->result() as $row)
+                                {
+                        ?>
+                        <div class="form-group">
+                            <label for="categoria">Digite o nome da categoria:</label>
+                            <input type="text" class="form-control" name="categoria" value="<?php echo $row->dscCategoria ?>">
+                        </div>
+                        <input type="hidden" name="idCategoria" value="<?php echo $row->idCategoria ?>">
+                        <input type="submit" class="btn btn-primary btn-lg float-right mb-5" name="editar" value="Atualizar">
+                        <?php
+
+                                }
+                            }
+                            else
+                            {
+
+                        ?>
+
                         <div class="form-group">
                             <label for="categoria">Digite o nome da categoria:</label>
                             <input type="text" class="form-control" name="categoria">
                         </div>
-                        <input type="submit" class="btn btn-primary btn-lg float-right" value="Cadastrar">
+                        <input type="submit" class="btn btn-primary btn-lg float-right mb-5" name="inserir" value="Cadastrar">
+                        <?php
+                        }
+                        ?>
                     <?php 
                         echo form_close(); 
                     ?>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>CATEGORIA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($listarCategorias->result() as $row) : ?>
+                            <tr>
+                                <td><?php echo $row->dscCategoria; ?></td>
+                                <td>
+                                    <a href="<?php echo site_url('admin/categorias/editarCategoria/')?><?= $row->idCategoria?>" class="btn btn-info float-right">Editar</a>      
+                                </td>
+                            </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
                 </div>
             </section>
