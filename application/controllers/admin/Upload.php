@@ -28,13 +28,12 @@ class Upload extends CI_Controller {
 
     public function cadastrarFoto()
     { 
-        $tituloImg = $this->input->post('tituloImg');
         $foto = $_FILES['foto'];
         $config = array(
             'upload_path' => '././assets/upload/',
             'remove_spaces' => FALSE,
             'allowed_types' => 'jpg|png',
-            'file_name' => $tituloImg.'.jpg'
+            'file_name' => sha1(uniqid(rand(), true)).'.jpg'
         );
 
         /* Load form validation library */ 
