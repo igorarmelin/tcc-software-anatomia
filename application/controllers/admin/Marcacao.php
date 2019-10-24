@@ -62,19 +62,26 @@ class Marcacao extends CI_Controller {
 		$dados['titulo'] = $this->input->post('titulo');
 		$dados['descricao'] = $this->input->post('descricao');
 
-		if($acao == 'marcar') {
+		if($acao == 'Realizar Marcação') {
 			// codigo para realizar as marcações
 			$this->load->model('admin/tbdmarcacao');
 			$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
 			$this->load->view('admin/inserir_marcacoes', $dados);
 		}
-		else{
+		else if($acao == 'Visualização'){
 			// codigo para visualizar as marcações
 			$this->load->model('admin/tbdmarcacao');
 			$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
 			$this->load->view('admin/visualizar_marcacoes', $dados);
+		}
+		else
+		{
+			$this->load->model('admin/tbdmarcacao');
+			$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
+
+			$this->load->view('admin/deletar_marcacoes', $dados);
 		}
 		
 	}
@@ -107,6 +114,16 @@ class Marcacao extends CI_Controller {
 		$this->tbdimagem->deleteImage($id);
 
 		redirect('admin/marcacao', 'refresh');
+	}
+
+	public function deletarMarcacao()
+	{
+		$id = $this->uri->segment(4);
+
+		$this->load->model('admin/tbdmarcacao');
+		$this->tbdmarcacao->deleteMarcacao($id);
+
+		echo "<script>window.close();</script>";
 	}
 	
 }

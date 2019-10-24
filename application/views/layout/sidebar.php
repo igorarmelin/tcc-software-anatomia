@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Painel de Anatomia</title>
+    <title>Painel de Anatomia Humana</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

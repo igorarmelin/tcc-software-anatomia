@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt">
   <head>
-    <title>Painel de Anatomia</title>
+    <title>Painel de Anatomia Humana</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,20 +17,26 @@
   <body>
 
     <div class="container">
-      <h1 class="text-center display-3 mt-3"><?= $titulo?></h1>
       <div class="area-imagem">
-        <img src="<?= $img?>" width="720" height="auto">
+        <img id="myimage" src="<?= $img?>" width="720" height="auto">
         <input style="display:none;" name="idImg" value="<?= $id?>">
         <?php foreach ($marcacoes->result() as $marcacao) : ?>
                 <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?php echo $marcacao->nomeMarcacao?></b><br><?php echo $marcacao->dscMarcacao?>" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">
                 </div>
         <?php endforeach ?>
       </div>
-      <div class="card mb-3">
-        <div class="card-body">
-          <?= $descricao?>
-        </div>
+        
+      <div class="img-zoom-container ml-3 float-right">
+        <div id="myresult" class="img-zoom-result"></div>
       </div>
+      <h1 class="text-center display-4 mt-3"><?= $titulo?></h1>
+        <div class="card mb-3">
+          <div class="card-body">
+            <?= $descricao?>
+          </div>
+        </div>
+
+        
         
     </div>
         
@@ -46,5 +52,8 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script>
+      imageZoom("myimage", "myresult");
+    </script> 
     </body>
 </html>

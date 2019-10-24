@@ -42,7 +42,7 @@
                                     <input type="hidden" name="titulo" value="<?= $foto['tituloImagem']?>">
                                     <input type="hidden" name="descricao" value="<?= $foto['dscImagem']?>">
                                     <h5 class="card-title"><?= $foto['tituloImagem']?></h5>
-                                    <input type="submit" name="acao" value="ver" class="btn btn-success btn float-left mt-3 mr-1">                                    
+                                    <input type="submit" name="acao" value="Visualização" class="btn btn-success btn float-left mt-3 mr-1">                                    
                                 </div>
                             </div>
                         </form>

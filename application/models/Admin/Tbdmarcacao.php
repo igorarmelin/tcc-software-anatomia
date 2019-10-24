@@ -26,4 +26,10 @@ class Tbdmarcacao extends CI_Model {
 
         return $query;
     }
+
+    function deleteMarcacao($id)
+    {
+        $this->db->delete('tbdmarcacao', array('idMarcacao' => $id));
+        return;
+    }
 }
