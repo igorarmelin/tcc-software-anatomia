@@ -3,3 +3,9 @@
     font-weight: bold;
     text-align: center;
 }
+
+.box-login{
+    border: 1px solid rgb(185, 182, 182);
+    padding: 30px;
+    border-radius: 10px;
+}

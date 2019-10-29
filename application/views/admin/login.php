@@ -11,16 +11,17 @@
 <body>
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-3 mx-auto">
+    <div class="col-md-3 mx-auto box-login">
       <h3 class="titulo-login">ADMIN</h3>
+      <hr>
       <form action="<?php echo site_url('admin/login/verificar') ?>" method="POST">
         <div class="form-group">
             <label for="dscProfessor">Usuário</label>
-            <input name="dscProfessor" type="text" class="form-control form-control-lg rounded-0" autofocus="" required>
+            <input name="dscProfessor" type="text" class="form-control form-control-lg rounded-2" autofocus="" required>
         </div>
         <div class="form-group">
             <label for="senhaProfessor">Senha</label>
-            <input name="senhaProfessor" type="password" class="form-control form-control-lg rounded-0" required>
+            <input name="senhaProfessor" type="password" class="form-control form-control-lg rounded-2" required>
         </div>
         <input type="submit" class="btn btn-primary btn-lg float-right" value="Acessar">
       </form>
