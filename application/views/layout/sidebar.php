@@ -20,12 +20,12 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="<?php echo site_url('index') ?>">
-                    <h4>FHO - Fundação Hermínio Ometto</h4>
+                    <h4 class="text-center">FHO - Fundação Hermínio Ometto</h4>
                 </a>
             </div>
 
-            <ul class="list-unstyled components">
-                <p>Menu Principal</p>
+            <ul class="list-unstyled components text-center">
+                <p class="font-weight-bold">Menu Principal</p>
                 <li>
                     <a href="<?php echo site_url('fotos/index') ?>">Ver Fotos</a>
                 </li>

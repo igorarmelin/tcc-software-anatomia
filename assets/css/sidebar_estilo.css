@@ -140,6 +140,22 @@
       background: #6d7fcc !important;
       color: #fff !important;
     }
+
+    .estilo-dropdown{
+      background:rgb(13, 38, 136);
+      border:none;
+      font-size: 1.1em;
+    }
+
+    .estilo-dropdown:hover {
+      color: #7386D5;
+      background: #fff;
+    }
+
+    .estilo-dropdown-item:hover{
+      color: #fff;
+      background: #7386D5;
+    }
     /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */

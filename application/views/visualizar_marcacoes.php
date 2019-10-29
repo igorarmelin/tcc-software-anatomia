@@ -17,7 +17,7 @@
   <body>
 
     <div class="container">
-      <div class="area-imagem">
+      <div class="area-imagem position-relative float-left" style="border: 1px solid rgb(185, 182, 182);">
         <img id="myimage" src="<?= $img?>" width="720" height="auto">
         <input style="display:none;" name="idImg" value="<?= $id?>">
         <?php foreach ($marcacoes->result() as $marcacao) : ?>
@@ -26,17 +26,17 @@
         <?php endforeach ?>
       </div>
         
-      <div class="img-zoom-container ml-3 float-right">
+      <div class="img-zoom-container ml-3 mt-5 position-relative float-left">
         <div id="myresult" class="img-zoom-result"></div>
       </div>
-      <h1 class="text-center display-4 mt-3"><?= $titulo?></h1>
+      <div class="info-foto">
+        <h1 class="text-center display-4 mt-3"><?= $titulo?></h1>
         <div class="card mb-3">
           <div class="card-body">
             <?= $descricao?>
           </div>
         </div>
-
-        
+      <div>
         
     </div>
     

@@ -20,27 +20,35 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="<?php echo site_url('admin/index') ?>">
-                    <h4>FHO - Fundação Hermínio Ometto</h4>
+                    <h4 class="text-center">FHO - Fundação Hermínio Ometto</h4>
                 </a>
             </div>
 
-            <ul class="list-unstyled components">
-                <p>Menu Principal</p>
+            <ul class="list-unstyled components text-center">
+                <p class="font-weight-bold">Menu Principal</p>
                 <li>
                     <a href="<?php echo site_url('admin/alunos/index') ?>">Alunos Cadastrados</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/categorias/index') ?>">Cadastro de Categorias</a>
+                    <a href="<?php echo site_url('admin/categorias/index') ?>">Categorias</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/subcategorias/index') ?>">Cadastro de Subcategorias</a>
+                    <a href="<?php echo site_url('admin/subcategorias/index') ?>">Subcategorias</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('admin/upload/index') ?>">Upload de Fotos</a>
+                    <a href="<?php echo site_url('admin/upload/index') ?>">Inserção de Fotos</a>
                 </li>
-                <li>
-                    <a href="<?php echo site_url('admin/marcacao/index') ?>">Marcação de Fotos</a>
-                </li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle estilo-dropdown" data-toggle="dropdown">
+                        Fotos
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item estilo-dropdown-item" href="<?php echo site_url('admin/marcacao/index') ?>">Realizar Marcações</a>
+                        <a class="dropdown-item estilo-dropdown-item" href="<?php echo site_url('admin/visualizacao/index') ?>">Visualizar Fotos</a>
+                        <a class="dropdown-item estilo-dropdown-item" href="<?php echo site_url('admin/excluir/index') ?>">Excluir Marcações</a>
+                        <a class="dropdown-item estilo-dropdown-item" href="<?php echo site_url('admin/deletar/index') ?>">Deletar Fotos</a>
+                    </div>
+                </div>
             </ul>
             <ul class="list-unstyled components">
                 <li>
