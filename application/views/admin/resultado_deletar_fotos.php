@@ -24,7 +24,7 @@
                                     <input type="hidden" name="id" value="<?= $foto['idImagem']?>">
                                     <input type="hidden" name="titulo" value="<?= $foto['tituloImagem']?>">
                                     <input type="hidden" name="descricao" value="<?= $foto['dscImagem']?>"> 
-                                    <a href="<?php echo site_url('admin/marcacao/deletarImagem/')?><?= $foto['idImagem']?>" class="btn btn-danger btn-block" onclick="return confirm('Tem certeza que deseja apagar a foto?')">Deletar Foto</a>      
+                                    <a href="<?php echo site_url('admin/deletar/deletarImagem/')?><?= $foto['idImagem']?>" class="btn btn-danger btn-block" onclick="return confirm('Tem certeza que deseja apagar a foto?')">Deletar Foto</a>      
                                                                   
                                 </div>
                             </div>

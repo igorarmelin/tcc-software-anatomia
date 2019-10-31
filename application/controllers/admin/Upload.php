@@ -28,7 +28,7 @@ class Upload extends CI_Controller {
 
     public function cadastrarFoto()
     { 
-        $foto = $_FILES['foto'];
+        $foto = $_FILES['foto'];        
         $config = array(
             'upload_path' => '././assets/upload/',
             'remove_spaces' => FALSE,

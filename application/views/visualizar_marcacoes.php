@@ -17,8 +17,8 @@
   <body>
 
     <div class="container">
-      <div class="area-imagem position-relative float-left" style="border: 1px solid rgb(185, 182, 182);">
-        <img id="myimage" src="<?= $img?>" width="720" height="auto">
+      <div class="area-imagem position-relative float-left">
+        <img id="myimage" src="<?= $img?>" width="720" height="auto" style="border: 1px solid rgb(185, 182, 182, 185);">
         <input style="display:none;" name="idImg" value="<?= $id?>">
         <?php foreach ($marcacoes->result() as $marcacao) : ?>
                 <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?php echo $marcacao->nomeMarcacao?></b><br><?php echo $marcacao->dscMarcacao?>" style="top:<?php echo $marcacao->coordY?>px; left:<?php echo $marcacao->coordX?>px">
