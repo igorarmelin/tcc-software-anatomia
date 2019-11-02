@@ -28,4 +28,16 @@ class Tbdcategoria extends CI_Model {
         $this->db->where("idCategoria", $id);
         $this->db->update("tbdcategoria", $dados);
     }
+
+    function getCategorias($info)
+    {
+        if($info != 'todas'){
+            $this->db->where("idCategoria", $info);
+            $query = $this->db->select('idCategoria')->get('tbdcategoria');
+        }else{
+            $query = $this->db->select('idCategoria')->get('tbdcategoria');
+        }
+
+        return $query->result();
+    }
 }

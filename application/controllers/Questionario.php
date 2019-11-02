@@ -26,6 +26,24 @@ class Questionario extends CI_Controller {
 
 	public function realiza_questionario()
 	{
-		
+		$this->load->model('admin/tbdcategoria');
+		$this->load->model('admin/tbdimagem');
+		$this->load->model('admin/tbdmarcacao');
+		$this->load->model('admin/tbdsubcategoria');
+
+		$dados = array();
+		$categorias = $this->input->post('categorias');
+		$subCategorias = $this->input->post('subcategorias');
+		$qtdFotos = $this->input->post('qtdFotos');
+		$qtdMarcacoes = $this->input->post('qtdMarcacoes');
+
+		$dados['categorias'] = $this->tbdcategoria->getCategorias($categorias);
+		$dados['subcategorias'] = $this->tbdsubcategoria->getSubCategorias($subCategorias);
+		$dados['imagens'] = $this->tbdimagem->getImagens($qtdFotos, $dados['categorias'], $dados['subcategorias']);
+
+		foreach ($dados['imagens'] as $key=>$imagem){
+			$dados['imagens'][$key]['marcacoes'] = $this->tbdmarcacao->getMarcacaoPorImagem($imagem['idImagem'], $qtdMarcacoes);
+		}
+		$this->load->view('realiza_questionario', $dados);
 	}
 }

@@ -22,8 +22,14 @@
             Questionário
         </a>
     </nav>
-
-    
+    <?php foreach($imagens as $key=> $imagem):?>
+        <div>
+            <p><?=$imagem['idImagem']?></p> 
+            <p><?=$imagem['tituloImagem']?></p> 
+            <p><?=$imagem['dscImagem']?></p> 
+            <img src="<?php echo base_url('assets/upload/'.$imagem['caminhoImagem']) ?>" alt=""> 
+        </div>S
+    <?php endforeach;?>
 
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
