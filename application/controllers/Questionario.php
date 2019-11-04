@@ -44,6 +44,7 @@ class Questionario extends CI_Controller {
 		foreach ($dados['imagens'] as $key=>$imagem){
 			$dados['imagens'][$key]['marcacoes'] = $this->tbdmarcacao->getMarcacaoPorImagem($imagem['idImagem'], $qtdMarcacoes);
 		}
+
 		$this->load->view('realiza_questionario', $dados);
 	}
 }

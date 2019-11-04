@@ -22,14 +22,22 @@
             Questionário
         </a>
     </nav>
-    <?php foreach($imagens as $key=> $imagem):?>
-        <div>
-            <p><?=$imagem['idImagem']?></p> 
-            <p><?=$imagem['tituloImagem']?></p> 
-            <p><?=$imagem['dscImagem']?></p> 
-            <img src="<?php echo base_url('assets/upload/'.$imagem['caminhoImagem']) ?>" alt=""> 
-        </div>S
-    <?php endforeach;?>
+
+    <div class="container-fluid">
+        <div class="area-imagem position-relative float-left">
+            <?php foreach($imagens as $key=> $imagem):?>
+                <div class="mb-5">
+                    <h4><?=$imagem['tituloImagem']?></h4> 
+                    <p><?=$imagem['dscImagem']?></p>
+                    <img src="<?php echo base_url('assets/upload/'.$imagem['caminhoImagem']) ?>" width="720" height="auto" style="border: 1px solid rgb(185, 182, 182, 185);"> 
+                </div>
+                <?php foreach($marcacoes as $key=> $marcacao):?>
+                    <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?=$marcacao['nomeMarcacao']?></b><br><?=$marcacao['dscMarcacao']?>" style="top:<?=$marcacao['coordY']?>px; left:<?=$marcacao['coordX']?>px">
+                    </div>
+                <?php endforeach;?>
+            <?php endforeach;?>
+        </div>
+    </div>
 
     <!-- JS -->
     <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
