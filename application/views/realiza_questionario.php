@@ -31,7 +31,7 @@
                     <p><?=$imagem['dscImagem']?></p>
                     <img src="<?php echo base_url('assets/upload/'.$imagem['caminhoImagem']) ?>" width="720" height="auto" style="border: 1px solid rgb(185, 182, 182, 185);"> 
                 </div>
-                <?php foreach($marcacoes as $key=> $marcacao):?>
+                <?php foreach($imagem['marcacoes'] as $key=> $marcacao):?>
                     <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?=$marcacao['nomeMarcacao']?></b><br><?=$marcacao['dscMarcacao']?>" style="top:<?=$marcacao['coordY']?>px; left:<?=$marcacao['coordX']?>px">
                     </div>
                 <?php endforeach;?>
