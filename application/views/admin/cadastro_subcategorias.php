@@ -5,7 +5,7 @@
                         echo form_open('admin/subcategorias/cadastrarSubcategorias');
                         echo validation_errors();
                         if (isset($success))
-                        echo '<p>'.$success.'</p>';
+                        echo '<div class="alert alert-success" role="alert"><b>'.$success.'</b></div>';
                     ?>
                         <?php
                             if(isset($dadosSubcategoria))

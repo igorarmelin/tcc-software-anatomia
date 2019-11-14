@@ -19,6 +19,7 @@ class Tbdaluno extends CI_Model
 
     function listarAlunos()
     {
+                 $this->db->order_by('nomeAluno', 'ASC');
         $query = $this->db->get("tbdaluno");
 
         return $query;

@@ -89,7 +89,7 @@ class Categorias extends CI_Controller {
 
         if ($query->num_rows() > 0)
         {
-        $this->form_validation->set_message('check_customer','A categoria '.$categoria.' já está cadastrada!');
+        $this->form_validation->set_message('check_customer','<div class="alert alert-danger" role="alert"> A categoria <b>'.$categoria.'</b> já está cadastrada!</div>');
             return FALSE;
         }
         else 

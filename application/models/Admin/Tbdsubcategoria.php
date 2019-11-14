@@ -12,6 +12,7 @@ class Tbdsubcategoria extends CI_Model {
 
 	function listarSubcategorias()
     {
+                 $this->db->order_by('dscSubcategoria', 'ASC');
         $query = $this->db->get("tbdsubcategoria");
 
         return $query;

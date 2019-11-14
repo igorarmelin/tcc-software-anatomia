@@ -58,6 +58,7 @@ class Subcategorias extends CI_Controller {
                 $this->load->model('admin/tbdsubcategoria');
                 $this->tbdsubcategoria->cadastrarSubcategoria();
                 $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
+                $dados["success"] = "Subcategoria cadastrada com sucesso!";
                 $this->load->view('layout/admin/sidebar');
                 $this->load->view('admin/cadastro_subcategorias', $dados);
                 $this->load->view('layout/admin/footer');
@@ -97,7 +98,7 @@ class Subcategorias extends CI_Controller {
 
         if ($query->num_rows() > 0)
         {
-        $this->form_validation->set_message('check_customer','A subcategoria '.$subcategoria.' já está cadastrada!');
+        $this->form_validation->set_message('check_customer','<div class="alert alert-danger" role="alert"> A subcategoria <b>'.$subcategoria.'</b> já está cadastrada!</div>');
             return FALSE;
         }
         else 

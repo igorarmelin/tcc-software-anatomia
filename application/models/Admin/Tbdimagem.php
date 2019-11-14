@@ -45,6 +45,7 @@ class Tbdimagem extends CI_Model {
                             ->from('tbdimagem')
                             ->join('imagem_categoria', 'tbdimagem.idImagem = imagem_categoria.idImagem', 'inner')
                             ->where('idCategoria', $busca)
+                            ->order_by('tbdimagem.tituloImagem', 'ASC')
                             ->get();
         
         return $query->result_array();
@@ -71,6 +72,7 @@ class Tbdimagem extends CI_Model {
         
         $query = $this->db->select('*')
                             ->from('tbdimagem')
+                            ->order_by('tituloImagem', 'ASC')
                             ->get();
         
         return $query->result_array();

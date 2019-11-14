@@ -11,6 +11,7 @@ class Tbdcategoria extends CI_Model {
 
 	function listarCategorias()
     {
+                 $this->db->order_by('dscCategoria', 'ASC');
         $query = $this->db->get("tbdcategoria");
 
         return $query;
