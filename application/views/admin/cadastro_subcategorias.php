@@ -6,6 +6,8 @@
                         echo validation_errors();
                         if (isset($success))
                         echo '<div class="alert alert-success" role="alert"><b>'.$success.'</b></div>';
+                        if (isset($att))
+                        echo '<div class="alert alert-primary" role="alert"><b>'.$att.'</b></div>';
                     ?>
                         <?php
                             if(isset($dadosSubcategoria))

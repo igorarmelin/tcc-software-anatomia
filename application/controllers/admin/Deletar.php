@@ -26,6 +26,10 @@ class Deletar extends CI_Controller {
 	{
 		$fotos = $_POST['categorias'];
 
+		$dados = array(
+			"dscSubcategoria" => $this->input->post("subcategoria")
+		);
+
 		if($fotos == "todas")
 		{
 			$this->load->model('admin/tbdcategoria');
@@ -61,7 +65,13 @@ class Deletar extends CI_Controller {
 		$this->load->model('admin/tbdimagem');
 		$this->tbdimagem->deleteImage($id);
 
-		redirect('admin/deletar', 'refresh');
+		$this->load->model('admin/tbdcategoria');
+		$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		$dados["sucesso"] = "Imagem deletada com sucesso";
+
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('admin/deletar_foto', $dados);
+		$this->load->view('layout/admin/footer');
 	}
 	
 }

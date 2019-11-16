@@ -65,8 +65,9 @@ class Visualizacao extends CI_Controller {
 		$this->load->model('admin/tbdmarcacao');
 		$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
+		$this->load->view('layout/admin/header_exibicao');
 		$this->load->view('admin/visualizar_fotos', $dados);
-		
+		$this->load->view('layout/admin/footer_exibicao');		
 		
 	}
 	

@@ -33,15 +33,4 @@ class Tbdmarcacao extends CI_Model {
         return;
     }
 
-    function getMarcacaoPorImagem($imagemId, $qtd)
-    {
-        $query = $this->db->select('*')
-                            ->from('tbdmarcacao')
-                            ->where('idImagem', $imagemId)
-                            ->limit($qtd)
-                            ->get();
-
-        return $query->result_array();
-    }
-
 }

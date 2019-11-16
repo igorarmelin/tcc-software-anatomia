@@ -110,17 +110,23 @@ class Tbdimagem extends CI_Model {
     }
 
     function getImagens($limit, $categorias, $subcategorias){
+
         $categoriasId = array();
         $subcategoriasId = array();
-        foreach ($categorias as $key => $categoria)
+
+        foreach ($categorias as $key_categoria => $categoria)
         {
             array_push($categoriasId, $categoria->idCategoria);
         }
 
-        foreach ($subcategorias as $key => $subcategoria)
+        foreach ($subcategorias as $key_subcategoria => $subcategoria)
         {
             array_push($subcategoriasId, $subcategoria->idSubcategoria);
         }
+
+        #Adicionar ao select a tabela TbdMarcacao
+        #De modo que: Selecione N marcações (numero de marcacoes = $limit)
+        #As marcações serão referentes as categorias ou subcategorias selecionadas (categorias = $categorias, subcategorias = $subcategorias)
 
         $this->db->select('*');
         $this->db->from('Tbdimagem');

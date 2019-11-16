@@ -49,13 +49,16 @@ class Subcategorias extends CI_Controller {
                     "dscSubcategoria" => $this->input->post("subcategoria")
                 );
                 $this->tbdsubcategoria->atualizarSubCategoria($dados, $this->input->post("idSubcategoria"));
-                redirect('admin/subcategorias', 'refresh');
+                $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+                $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
+                $dados["att"] = "Subcategoria atualizada com sucesso!";
+                $this->load->view('layout/admin/sidebar');
+                $this->load->view('admin/cadastro_subcategorias', $dados); 
+                $this->load->view('layout/admin/footer');
             }
             if($this->input->post("inserir"))
             {
-                $this->load->model('admin/tbdcategoria');
                 $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
-                $this->load->model('admin/tbdsubcategoria');
                 $this->tbdsubcategoria->cadastrarSubcategoria();
                 $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
                 $dados["success"] = "Subcategoria cadastrada com sucesso!";
@@ -67,9 +70,7 @@ class Subcategorias extends CI_Controller {
         } 
         else
         { 
-            $this->load->model('admin/tbdcategoria');
             $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
-            $this->load->model('admin/tbdsubcategoria');
             $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
             $this->load->view('layout/admin/sidebar');
             $this->load->view('admin/cadastro_subcategorias', $dados);

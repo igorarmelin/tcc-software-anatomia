@@ -16,7 +16,7 @@
                 <div class="container-galeria row d-flex justify-content-center">
                     
                     <?php foreach ($listagem as $foto) : ?>
-                        <form action="<?= base_url('index.php/admin/visualizacao/insereMarcacoes') ?>" method="POST" target="_blank">
+                        <form action="<?= base_url('index.php/admin/visualizacao/insereMarcacoes') ?>" method="POST">
                             <div class="card mx-3 my-3" style="width: 18rem;">
                                 <h5 class="card-title text-center"><?= $foto['tituloImagem']?></h5>
                                 <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>" alt="<?= $foto['tituloImagem']?>" width="286" height="200">

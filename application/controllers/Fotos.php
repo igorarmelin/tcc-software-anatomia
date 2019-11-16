@@ -129,6 +129,8 @@ class Fotos extends CI_Controller {
 		$this->load->model('admin/tbdmarcacao');
 		$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
+		$this->load->view('layout/header_exibicao');
 		$this->load->view('visualizar_marcacoes', $dados);
+		$this->load->view('layout/footer_exibicao');
 	}
 }

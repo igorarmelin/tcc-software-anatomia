@@ -33,13 +33,15 @@ class Tbdsubcategoria extends CI_Model {
 
     function getSubCategorias($info)
     {
-        if($info != 'todas'){
+        if($info != "nenhuma"){
             $this->db->where("idSubcategoria", $info);
             $query = $this->db->select('idSubcategoria')->get('tbdsubcategoria');
-        }else{
-            $query = $this->db->select('idSubcategoria')->get('tbdsubcategoria');
-        }
 
-        return $query->result();
+            return $query->result();
+        }
+        else{
+            return "0";
+        }
+            
     }
 }

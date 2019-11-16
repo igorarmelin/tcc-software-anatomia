@@ -61,7 +61,13 @@ class Excluir extends CI_Controller {
 		$this->load->model('admin/tbdmarcacao');
 		$this->tbdmarcacao->deleteMarcacao($id);
 
-		echo "<script>window.close();</script>";
+		$this->load->model('admin/tbdcategoria');
+		$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+		$dados["success"] = "Marcação excluída com sucesso";
+
+		$this->load->view('layout/admin/sidebar');
+		$this->load->view('admin/excluir_marcacao', $dados);
+		$this->load->view('layout/admin/footer');
 	}
 
 	function insereMarcacoes()
@@ -75,7 +81,9 @@ class Excluir extends CI_Controller {
 		$this->load->model('admin/tbdmarcacao');
 		$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
+		$this->load->view('layout/admin/header_exibicao');
 		$this->load->view('admin/excluir_marcacoes', $dados);
+		$this->load->view('layout/admin/footer_exibicao');
 		
 		
 	}

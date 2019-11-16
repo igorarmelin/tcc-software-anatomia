@@ -45,7 +45,11 @@ class Categorias extends CI_Controller {
                     "dscCategoria" => $this->input->post("categoria")
                 );
                 $this->tbdcategoria->atualizarCategoria($dados, $this->input->post("idCategoria"));
-                redirect('admin/categorias', 'refresh');
+                $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+                $dados["att"] = "Categoria atualizada com sucesso!";
+                $this->load->view('layout/admin/sidebar');
+                $this->load->view('admin/cadastro_categorias', $dados); 
+                $this->load->view('layout/admin/footer');
             }
             if($this->input->post("inserir"))
             {

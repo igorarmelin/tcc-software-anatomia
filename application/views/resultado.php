@@ -33,7 +33,7 @@
                 <div class="container-galeria row d-flex justify-content-center">
                     
                     <?php foreach ($listagem as $foto) : ?>
-                        <form action="<?= base_url('index.php/fotos/visualizaMarcacoes/') ?>" method="POST" target="_blank">
+                        <form action="<?= base_url('index.php/fotos/visualizaMarcacoes/') ?>" method="POST">
                             <div class="card mx-3 my-3" style="width: 18rem;">
                                 <img class="card-img-top" src="<?php echo base_url(); ?>assets/upload/<?= $foto['caminhoImagem']?>" alt="<?= $foto['tituloImagem']?>" width="286" height="200">
                                 <div class="card-body">

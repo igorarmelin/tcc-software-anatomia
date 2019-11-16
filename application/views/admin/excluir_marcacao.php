@@ -1,6 +1,10 @@
 <section>
                 <h1 class="text-center">Excluir Marcações</h1>
 
+                <?php
+                    if (isset($success))
+                    echo '<div class="alert alert-success" role="alert"><b>'.$success.'</b></div>';
+                ?>
                 <form action="<?= base_url('index.php/admin/excluir/buscafotos/') ?>" method="POST" >
                     <label for="categoria">Selecione a categoria referente a foto desejada:</label>
                     <select name="categorias" class="form-control">

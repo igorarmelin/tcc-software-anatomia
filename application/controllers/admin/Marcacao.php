@@ -64,8 +64,9 @@ class Marcacao extends CI_Controller {
 		$this->load->model('admin/tbdmarcacao');
 		$dados['marcacoes'] = $this->tbdmarcacao->listarMarcacoes();
 
+		$this->load->view('layout/admin/header_exibicao');
 		$this->load->view('admin/inserir_marcacoes', $dados);
-		
+		$this->load->view('layout/admin/footer_exibicao');		
 		
 	}
 
@@ -78,14 +79,26 @@ class Marcacao extends CI_Controller {
 		$this->form_validation->set_rules('marcacao', 'Text', 'required');
 		if ($this->form_validation->run() == FALSE)
         { 
-            redirect('admin/marcacao/buscaFotos');
+            $this->load->model('admin/tbdcategoria');
+			$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+			$dados["campoVazio"] = "Nenhuma marcação inserida";
+
+			$this->load->view('layout/admin/sidebar');
+			$this->load->view('admin/marcacao_fotos', $dados);
+			$this->load->view('layout/admin/footer');
         } 
         else
         { 
 			$this->load->model('admin/tbdmarcacao');
 			$this->tbdmarcacao->registraDadosImg();
 
-			echo "<script>window.close();</script>";
+			$this->load->model('admin/tbdcategoria');
+			$dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+			$dados["sucesso"] = "Marcação inserida com sucesso";
+
+			$this->load->view('layout/admin/sidebar');
+			$this->load->view('admin/marcacao_fotos', $dados);
+			$this->load->view('layout/admin/footer');
         } 
 	}
 	

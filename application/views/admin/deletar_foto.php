@@ -1,6 +1,10 @@
 <section>
                 <h1 class="text-center">Deletar Fotos</h1>
 
+                <?php
+                    if (isset($sucesso))
+                    echo '<div class="alert alert-success" role="alert"><b>'.$sucesso.'</b></div>';
+                ?>
                 <form action="<?= base_url('index.php/admin/deletar/buscafotos/') ?>" method="POST" >
                     <label for="categoria">Selecione a categoria referente a foto desejada:</label>
                     <select name="categorias" class="form-control">
