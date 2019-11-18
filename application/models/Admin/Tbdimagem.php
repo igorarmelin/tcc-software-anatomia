@@ -109,20 +109,7 @@ class Tbdimagem extends CI_Model {
         return;
     }
 
-    function getImagens($limit, $categorias, $subcategorias){
-
-        $categoriasId = array();
-        $subcategoriasId = array();
-
-        foreach ($categorias as $key_categoria => $categoria)
-        {
-            array_push($categoriasId, $categoria->idCategoria);
-        }
-
-        foreach ($subcategorias as $key_subcategoria => $subcategoria)
-        {
-            array_push($subcategoriasId, $subcategoria->idSubcategoria);
-        }
+    function getImagensCategoria($limite, $categoria){        
 
         #Adicionar ao select a tabela TbdMarcacao
         #De modo que: Selecione N marcações (numero de marcacoes = $limit)
@@ -131,12 +118,29 @@ class Tbdimagem extends CI_Model {
         $this->db->select('*');
         $this->db->from('Tbdimagem');
         $this->db->join('imagem_categoria', 'Tbdimagem.idImagem = imagem_categoria.idImagem');
-        $this->db->join('imagem_subcategoria', 'Tbdimagem.idImagem = imagem_subcategoria.idImagem');
-        $this->db->where_in('imagem_categoria.idCategoria', $categoriasId);
-        $this->db->where_in('imagem_subcategoria.idSubcategoria', $subcategoriasId);
-        $this->db->limit($limit);
+        $this->db->where('imagem_categoria.idCategoria', $categoria);
+        $this->db->order_by('rand()');
+        $this->db->limit($limite);
 
         $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+    function getImagensSubcategoria($limite, $subcategorias){        
+
+        #Adicionar ao select a tabela TbdMarcacao
+        #De modo que: Selecione N marcações (numero de marcacoes = $limit)
+        #As marcações serão referentes as categorias ou subcategorias selecionadas (categorias = $categorias, subcategorias = $subcategorias)
+
+        $this->db->select('*');
+        $this->db->from('Tbdimagem');
+        $this->db->join('imagem_subcategoria', 'Tbdimagem.idImagem = imagem_subcategoria.idImagem');
+        $this->db->where('imagem_subcategoria.idSubcategoria', $subcategorias);
+        $this->db->limit($limite);
+
+        $query = $this->db->get();
+
         return $query->result_array();
     }
 }

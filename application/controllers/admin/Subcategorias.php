@@ -70,7 +70,9 @@ class Subcategorias extends CI_Controller {
         } 
         else
         { 
+            $this->load->model('admin/tbdcategoria');
             $dados["listarCategorias"] = $this->tbdcategoria->listarCategorias();
+            $this->load->model('admin/tbdsubcategoria');
             $dados["listarSubcategorias"] = $this->tbdsubcategoria->listarSubcategorias();
             $this->load->view('layout/admin/sidebar');
             $this->load->view('admin/cadastro_subcategorias', $dados);

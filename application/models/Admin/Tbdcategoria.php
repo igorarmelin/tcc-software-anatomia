@@ -31,16 +31,11 @@ class Tbdcategoria extends CI_Model {
     }
 
     function getCategorias($info){
+        
+        $this->db->where("idCategoria", $info);
+        $query = $this->db->select('idCategoria')->get('tbdcategoria');
 
-        if($info != "nenhuma"){
-            $this->db->where("idCategoria", $info);
-            $query = $this->db->select('idCategoria')->get('tbdcategoria');
-
-            return $query->result();
-        }
-        else{
-            return "0";
-        }
+        return $query->result();
 
     }
 }

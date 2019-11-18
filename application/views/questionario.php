@@ -3,6 +3,10 @@
 
                 <?php
                     echo form_open_multipart('questionario/realiza_questionario');
+                    if (isset($erroSelecao))
+                    echo '<div class="alert alert-danger" role="alert"><b>'.$erroSelecao.'</b></div>';
+                    if (isset($erroNenhuma))
+                    echo '<div class="alert alert-danger" role="alert"><b>'.$erroNenhuma.'</b></div>';
                 ?>
                     <div class="form-group">
                         <label for="categorias">Selecione a categoria referente a foto desejada:</label>
@@ -23,14 +27,24 @@
                         </select>
                     </div> 
                     <div class="form-group">
-                        <label for="qtdMarcacoes">Quantidade de marcações à responder:</label>
-                        <select name="qtdMarcacoes" class="form-control">
-                            <option value="todas">Todas</option>
-                            <option value="5">10</option>
-                            <option value="10">15</option>
+                        <label for="qtdFotos">Quantidade de fotos no questionário:</label>
+                        <select name="qtdFotos" class="form-control">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
                             <option value="15">20</option>
                         </select>
-                    </div>                  
+                    </div>
+                    <div class="form-group">
+                        <label for="qtdMarcacoes">Quantidade de marcações à responder:</label>
+                        <select name="qtdMarcacoes" class="form-control">
+                            <option value="1">1</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="15">20</option>
+                        </select>
+                    </div>                    
 
                     <input type="submit" class="btn btn-primary btn-lg float-right mt-3" value="Gerar questionário">
                 <?php 

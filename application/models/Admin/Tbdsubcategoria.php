@@ -31,17 +31,12 @@ class Tbdsubcategoria extends CI_Model {
         $this->db->update("tbdsubcategoria", $dados);
     }
 
-    function getSubCategorias($info)
-    {
-        if($info != "nenhuma"){
-            $this->db->where("idSubcategoria", $info);
-            $query = $this->db->select('idSubcategoria')->get('tbdsubcategoria');
+    function getSubCategorias($info){
 
-            return $query->result();
-        }
-        else{
-            return "0";
-        }
+        $this->db->where("idSubcategoria", $info);
+        $query = $this->db->select('idSubcategoria')->get('tbdsubcategoria');
+
+        return $query->result();
             
     }
 }

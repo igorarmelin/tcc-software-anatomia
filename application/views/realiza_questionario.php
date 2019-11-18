@@ -23,20 +23,30 @@
         </a>
     </nav>
 
-    <div class="container-fluid">
-        <div class="area-imagem position-relative float-left">
-            <?php foreach($imagens as $key=> $imagem):?>
-                <div class="mb-5">
-                    <h4><?=$imagem['tituloImagem']?></h4> 
-                    <p><?=$imagem['dscImagem']?></p>
+    <div class="container text-center">
+        <?php
+            echo form_open_multipart('questionario/gabarito');
+        ?>
+        <?php foreach($imagens as $key=> $imagem):?>
+        <div class="area-imagem position-relative">
+            
+                <div class="mb-3">
                     <img src="<?php echo base_url('assets/upload/'.$imagem['caminhoImagem']) ?>" width="720" height="auto" style="border: 1px solid rgb(185, 182, 182, 185);"> 
                 </div>
                 <?php foreach($imagem['marcacoes'] as $key=> $marcacao):?>
-                    <div class="ponto" data-toggle="tooltip" data-placement="right" data-html="true" title="<b><?=$marcacao['nomeMarcacao']?></b><br><?=$marcacao['dscMarcacao']?>" style="top:<?=$marcacao['coordY']?>px; left:<?=$marcacao['coordX']?>px">
+                    <div class="ponto" id="<?=$marcacao['idMarcacao']?>" style="top:<?=$marcacao['coordY']?>px; left:<?=$marcacao['coordX']?>px"><b></b></div>
+                    <div class="form-group">
+                        <label for="<?=$marcacao['idMarcacao']?>"><b> - </b></label>
+                        <input id="<?=$marcacao['idMarcacao']?>" type="text">
                     </div>
                 <?php endforeach;?>
-            <?php endforeach;?>
+            
         </div>
+        <?php endforeach;?>
+        <input type="submit" class="btn btn-primary btn-lg mb-3" value="Finalizar">
+        <?php 
+            echo form_close(); 
+        ?>
     </div>
 
     <!-- JS -->

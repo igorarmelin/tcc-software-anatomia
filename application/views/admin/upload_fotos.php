@@ -5,7 +5,7 @@
                         echo form_open_multipart('admin/upload/cadastrarFoto');
                         echo validation_errors();
                         if (isset($success))
-                        echo '<p>'.$success.'</p>';
+                        echo '<div class="alert alert-success" role="alert"><b>'.$success.'</b></div>';
                     ?>
                         <div class="form-group">
                             <label for="tituloImg">Título da foto:</label>

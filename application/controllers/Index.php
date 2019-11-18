@@ -9,7 +9,7 @@ class Index extends CI_Controller {
 		if(!$this->session->userdata('aluno'))
 		{
 			redirect('');
-		}
+        }
     }
 
     function index()
