@@ -78,6 +78,6 @@ class Questionario extends CI_Controller {
 
 	public function gabarito()
 	{
-		$marcacoes = $this->input->post('id');
+		
 	}
 }
