@@ -1,9 +1,16 @@
 <?php
 class Tbdquestionario extends CI_Model
 {
-    public function buscaImagens()
+    function respostasCorretas($resposta, $idMarcacao)
     {
         
+
+    }
+
+    function respostasIncorretas($resposta, $idMarcacao)
+    {
+        
+
     }
         
 }
