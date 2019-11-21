@@ -39,7 +39,6 @@
                     <label><b><?=$marcacao['idMarcacao']?> - </b></label>
                     <input name="resposta[]" type="text">
                     <input name="idMarcacao[]" type="hidden" value="<?=$marcacao['idMarcacao']?>">
-                    <input name="nomeMarcacao[]" type="hidden" value="<?=$marcacao['nomeMarcacao']?>">
                 </div>  
             <?php endforeach;?>
             

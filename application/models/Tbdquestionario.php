@@ -5,12 +5,11 @@ class Tbdquestionario extends CI_Model
     {   
 
         $respostas = $this->input->post('resposta[]');
-        $respostaCorreta = $this->input->post('nomeMarcacao[]');
         $ids = $this->input->post('idMarcacao[]');
 
-        $data = array_map(function ($respostaAluno, $respostaCorreta, $idMarcacao) {
-        return compact('respostaAluno', 'respostaCorreta', 'idMarcacao');
-        }, $respostas, $respostaCorreta, $ids);
+        $data = array_map(function ($respostaAluno, $idMarcacao) {
+        return compact('respostaAluno', 'idMarcacao');
+        }, $respostas, $ids);
 
         $this->db->insert_batch('tbdquestionario', $data);
         
