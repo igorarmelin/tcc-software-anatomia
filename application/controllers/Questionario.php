@@ -79,8 +79,8 @@ class Questionario extends CI_Controller {
 	public function gabarito()
 	{
 
-		$this->load->model('tbdquestionario');
-		$this->tbdquestionario->insereRespostas();
+		$respostaAluno = $this->input->post('resposta[]');
+		$idMarcacao = $this->input->post('idMarcacao[]');
 
 		$this->load->view('gabarito');
 
