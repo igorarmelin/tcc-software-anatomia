@@ -44,7 +44,7 @@
             <p class="h1 text-info">Você acertou: <?=$porcAcertos?>% do questionário!</p>
             
             <div class="progress" style="height: 20px;">
-                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="<?=$porcAcertos?>" aria-valuemin="0" aria-valuemax="100"><?=$porcAcertos?>%</div>
+                <div class="progress-bar" role="progressbar" style="width: <?=$porcAcertos?>%;" aria-valuenow="<?=$porcAcertos?>" aria-valuemin="0" aria-valuemax="100"><?=$porcAcertos?>%</div>
             </div>
         </div>        
 
