@@ -81,6 +81,12 @@ class Questionario extends CI_Controller {
 		$dados['respostas'] = $this->input->post('resposta[]');
 		$dados['corretas'] = $this->input->post('respostaCerta[]');
 
+		$acertos = array_intersect_assoc($dados['respostas'], $dados['corretas']);
+		$qtdAcertos = count($acertos);
+		$totalQuestoes = count($dados['corretas']);
+
+		$dados['porcAcertos'] = (($qtdAcertos / $totalQuestoes) * 100);
+
 		$this->load->view('gabarito', $dados);
 	}
 }

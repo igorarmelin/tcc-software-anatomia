@@ -40,6 +40,14 @@
                 <?php endforeach ?>
             </tbody>
         </table>
+        <div class="mt-3 mb-5">
+            <p class="h1 text-info">Você acertou: <?=$porcAcertos?>% do questionário!</p>
+            
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="<?=$porcAcertos?>" aria-valuemin="0" aria-valuemax="100"><?=$porcAcertos?>%</div>
+            </div>
+        </div>        
+
         <a class="btn btn-outline-info float-right" href="<?php echo site_url('index') ?>">Voltar ao menu</a>
     </div>
 
