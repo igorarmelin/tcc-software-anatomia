@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label><b><?=$marcacao['idMarcacao']?> - </b></label>
                     <input name="resposta[]" type="text">
-                    <input name="idMarcacao[]" type="hidden" value="<?=$marcacao['idMarcacao']?>">
+                    <input name="respostaCerta[]" type="hidden" value="<?=$marcacao['nomeMarcacao']?>">
                 </div>  
             <?php endforeach;?>
             

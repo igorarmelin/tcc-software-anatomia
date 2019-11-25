@@ -24,7 +24,23 @@
     </nav>
 
     <div class="container text-center">
-        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>RESPOSTAS</th>
+                    <th>GABARITO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($respostas as $index => $resposta) : ?>
+                    <tr>
+                        <td><?=$resposta?></td>
+                        <td><?=$corretas[$index]?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+        <a class="btn btn-outline-info float-right" href="<?php echo site_url('index') ?>">Voltar ao menu</a>
     </div>
 
     <!-- JS -->
